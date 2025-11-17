@@ -4,16 +4,16 @@ import { LeadForm } from '../LeadForm';
 import { LeadFormData } from '../../types';
 import { Mail, Phone, MessageSquare } from 'lucide-react';
 
-interface SlideFormularioProps {
+interface FormularioSectionProps {
   onSubmit: (data: LeadFormData) => Promise<void>;
 }
 
-export const SlideFormulario: React.FC<SlideFormularioProps> = ({ onSubmit }) => {
+export const FormularioSection: React.FC<FormularioSectionProps> = ({ onSubmit }) => {
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden py-20 px-6">
+    <section id="formulario" className="min-h-screen flex items-center justify-center relative overflow-hidden py-20 px-6">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: 'url(/images/business-team.jpg)'
@@ -26,7 +26,8 @@ export const SlideFormulario: React.FC<SlideFormularioProps> = ({ onSubmit }) =>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -35,7 +36,7 @@ export const SlideFormulario: React.FC<SlideFormularioProps> = ({ onSubmit }) =>
             <span className="text-yellow-400">Transformación</span>
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Completa el formulario y nuestro equipo de expertos se pondrá en contacto contigo 
+            Completa el formulario y nuestro equipo de expertos se pondrá en contacto contigo
             para diseñar una solución personalizada de IA para tu empresa
           </p>
         </motion.div>
@@ -44,7 +45,8 @@ export const SlideFormulario: React.FC<SlideFormularioProps> = ({ onSubmit }) =>
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-8"
           >
@@ -130,13 +132,14 @@ export const SlideFormulario: React.FC<SlideFormularioProps> = ({ onSubmit }) =>
           {/* Form */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <LeadForm onSubmit={onSubmit} />
           </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

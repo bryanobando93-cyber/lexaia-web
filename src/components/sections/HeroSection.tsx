@@ -2,16 +2,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Bot, Sparkles, ArrowRight } from 'lucide-react';
 
-interface SlideHeroProps {
+interface HeroSectionProps {
   onNavigateToForm: () => void;
 }
 
-export const SlideHero: React.FC<SlideHeroProps> = ({ onNavigateToForm }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigateToForm }) => {
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: 'url(/images/hero-bg.jpg)'
@@ -122,6 +122,6 @@ export const SlideHero: React.FC<SlideHeroProps> = ({ onNavigateToForm }) => {
           </div>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };

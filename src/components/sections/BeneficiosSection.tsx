@@ -4,7 +4,7 @@ import { BENEFICIOS_CUANTIFICABLES } from '../../data/constants';
 import { TrendingUp, Clock, Shield, Zap } from 'lucide-react';
 import { DynamicIcon } from '../DynamicIcon';
 
-export const SlideBeneficios: React.FC = () => {
+export const BeneficiosSection: React.FC = () => {
   const additionalBenefits = [
     {
       icon: <TrendingUp className="w-8 h-8" />,
@@ -29,10 +29,10 @@ export const SlideBeneficios: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden py-20 px-6">
+    <section id="beneficios" className="min-h-screen flex items-center justify-center relative overflow-hidden py-20 px-6">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: 'url(/images/dashboard-analytics.jpg)'
@@ -45,7 +45,8 @@ export const SlideBeneficios: React.FC = () => {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -64,7 +65,8 @@ export const SlideBeneficios: React.FC = () => {
             <motion.div
               key={beneficio.metric}
               initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               className="text-center bg-slate-800/70 backdrop-blur-sm border border-slate-700/50 rounded-xl p-8 hover:border-yellow-500/30 transition-all duration-300 hover:bg-slate-800/80"
             >
@@ -87,7 +89,8 @@ export const SlideBeneficios: React.FC = () => {
             <motion.div
               key={benefit.title}
               initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-              animate={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 + index * 0.1 }}
               className="flex items-start gap-4 bg-slate-800/50 backdrop-blur-sm border border-slate-700/30 rounded-xl p-6 hover:border-yellow-500/20 transition-all duration-300 hover:bg-slate-800/70"
             >
@@ -109,7 +112,8 @@ export const SlideBeneficios: React.FC = () => {
         {/* ROI Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.8 }}
           className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/20 rounded-xl p-8 text-center backdrop-blur-sm"
         >
@@ -117,7 +121,7 @@ export const SlideBeneficios: React.FC = () => {
             Retorno de Inversión Garantizado
           </h3>
           <p className="text-slate-300 text-lg mb-6 max-w-4xl mx-auto">
-            Nuestros clientes experimentan un ROI promedio del 300% en los primeros 6 meses, 
+            Nuestros clientes experimentan un ROI promedio del 300% en los primeros 6 meses,
             con mejoras continuas en eficiencia operativa y satisfacción del cliente.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -136,6 +140,6 @@ export const SlideBeneficios: React.FC = () => {
           </div>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
