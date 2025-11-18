@@ -68,8 +68,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToForm }) => {
             {/* Logo */}
             <button
               onClick={() => scrollToSection('hero')}
-              className="flex items-center gap-2 group"
+              className="flex items-center gap-3 group"
             >
+              {/* Opción 1: Con imagen de logo (descomentar cuando tengas el archivo del logo) */}
+              {/* Guardar el archivo del logo en: /public/images/logo.png */}
+              {/* <img
+                src="/images/logo.png"
+                alt="lexaia"
+                className="h-10 w-auto transition-transform group-hover:scale-105"
+              /> */}
+
+              {/* Opción 2: Con ícono + texto (actual) */}
               <div className="p-2 bg-primary/20 backdrop-blur-sm rounded-lg border border-primary/30 group-hover:bg-primary/30 transition-colors">
                 <Sparkles className="w-6 h-6 text-primary" />
               </div>
