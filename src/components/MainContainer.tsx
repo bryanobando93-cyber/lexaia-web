@@ -1,11 +1,14 @@
 import React from 'react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
+import { ScrollProgressIndicator } from './ScrollProgressIndicator';
+import { BackToTopButton } from './BackToTopButton';
 import { HeroSection } from './sections/HeroSection';
 import { ServiciosSection } from './sections/ServiciosSection';
 import { BeneficiosSection } from './sections/BeneficiosSection';
 import { SectoresSection } from './sections/SectoresSection';
 import { CasosUsoSection } from './sections/CasosUsoSection';
+import { TestimonialsSection } from './sections/TestimonialsSection';
 import { FormularioSection } from './sections/FormularioSection';
 import { LeadFormData } from '../types';
 
@@ -27,11 +30,14 @@ export const MainContainer: React.FC = () => {
   return (
     <div className="w-full">
       <Navbar onNavigateToForm={handleScrollToForm} />
+      <ScrollProgressIndicator />
+      <BackToTopButton />
       <HeroSection onNavigateToForm={handleScrollToForm} />
       <ServiciosSection />
       <BeneficiosSection />
       <SectoresSection />
       <CasosUsoSection />
+      <TestimonialsSection />
       <FormularioSection onSubmit={handleFormSubmit} />
       <Footer />
     </div>

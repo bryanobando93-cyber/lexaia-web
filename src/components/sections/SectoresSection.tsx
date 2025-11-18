@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SECTORES_OBJETIVO } from '../../data/constants';
-import { ShoppingCart, Building2, Factory, Heart, GraduationCap, DollarSign, ArrowRight } from 'lucide-react';
+import { ShoppingCart, Building2, Factory, Heart, GraduationCap, DollarSign, ArrowRight, Lightbulb } from 'lucide-react';
+import { SecondaryCTA } from '../SecondaryCTA';
 
 const sectorIcons = {
   'Retail y E-commerce': <ShoppingCart className="w-8 h-8" />,
@@ -138,6 +139,28 @@ export const SectoresSection: React.FC = () => {
               </div>
             </div>
           </div>
+        </motion.div>
+
+        {/* Secondary CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="text-center mt-8"
+        >
+          <SecondaryCTA
+            text="Ver Solución para Mi Sector"
+            icon={Lightbulb}
+            variant="accent"
+            location="sectores_section"
+            onClick={() => {
+              const formularioElement = document.getElementById('formulario');
+              if (formularioElement) {
+                formularioElement.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          />
         </motion.div>
       </div>
     </section>

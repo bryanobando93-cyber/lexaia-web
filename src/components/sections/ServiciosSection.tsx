@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SERVICIOS_PRINCIPALES } from '../../data/constants';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Eye } from 'lucide-react';
 import { DynamicIcon } from '../DynamicIcon';
+import { SecondaryCTA } from '../SecondaryCTA';
 
 export const ServiciosSection: React.FC = () => {
   return (
@@ -102,6 +103,28 @@ export const ServiciosSection: React.FC = () => {
               </div>
             </div>
           </div>
+        </motion.div>
+
+        {/* Secondary CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="text-center mt-8"
+        >
+          <SecondaryCTA
+            text="Ver Casos de Éxito"
+            icon={Eye}
+            variant="outlined"
+            location="servicios_section"
+            onClick={() => {
+              const casosUsoElement = document.getElementById('casos-uso');
+              if (casosUsoElement) {
+                casosUsoElement.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          />
         </motion.div>
       </div>
     </section>

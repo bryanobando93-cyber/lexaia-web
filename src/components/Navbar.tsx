@@ -17,6 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToForm }) => {
     { id: 'beneficios', label: 'Beneficios' },
     { id: 'sectores', label: 'Sectores' },
     { id: 'casos-uso', label: 'Casos de Uso' },
+    { id: 'testimonios', label: 'Testimonios' },
     { id: 'formulario', label: 'Contacto' },
   ];
 
