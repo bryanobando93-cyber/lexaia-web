@@ -4,12 +4,12 @@ import { SERVICIOS_PRINCIPALES } from '../../data/constants';
 import { CheckCircle } from 'lucide-react';
 import { DynamicIcon } from '../DynamicIcon';
 
-export const SlideServicios: React.FC = () => {
+export const ServiciosSection: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden py-20 px-6">
+    <section id="servicios" className="min-h-screen flex items-center justify-center relative overflow-hidden py-20 px-6">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: 'url(/images/automation-process.jpg)'
@@ -22,7 +22,8 @@ export const SlideServicios: React.FC = () => {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -41,7 +42,8 @@ export const SlideServicios: React.FC = () => {
             <motion.div
               key={servicio.title}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               className="bg-slate-800/70 backdrop-blur-sm border border-slate-700/50 rounded-xl p-8 hover:border-yellow-500/30 transition-all duration-300 group hover:bg-slate-800/80"
             >
@@ -76,7 +78,8 @@ export const SlideServicios: React.FC = () => {
         {/* Bottom CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center mt-16"
         >
@@ -101,6 +104,6 @@ export const SlideServicios: React.FC = () => {
           </div>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };

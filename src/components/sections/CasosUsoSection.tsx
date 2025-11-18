@@ -77,12 +77,12 @@ const casosDeUso = [
   }
 ];
 
-export const SlideCasosUso: React.FC = () => {
+export const CasosUsoSection: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden py-20 px-6">
+    <section id="casos-uso" className="min-h-screen flex items-center justify-center relative overflow-hidden py-20 px-6">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: 'url(/images/customer-service.jpg)'
@@ -95,7 +95,8 @@ export const SlideCasosUso: React.FC = () => {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -114,7 +115,8 @@ export const SlideCasosUso: React.FC = () => {
             <motion.div
               key={caso.title}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               className="bg-slate-800/70 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 hover:border-yellow-500/30 transition-all duration-300 group hover:bg-slate-800/80"
             >
@@ -161,7 +163,8 @@ export const SlideCasosUso: React.FC = () => {
         {/* Bottom Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-16"
         >
@@ -171,11 +174,11 @@ export const SlideCasosUso: React.FC = () => {
                 Implementación Personalizada
               </h3>
               <p className="text-slate-300 text-lg max-w-3xl mx-auto">
-                Cada caso de uso se adapta a tus procesos existentes y se integra perfectamente 
+                Cada caso de uso se adapta a tus procesos existentes y se integra perfectamente
                 con tus sistemas actuales para maximizar el impacto.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="text-yellow-400 font-bold text-lg mb-2">1. Análisis</div>
@@ -197,6 +200,6 @@ export const SlideCasosUso: React.FC = () => {
           </div>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };

@@ -12,14 +12,15 @@ const sectorIcons = {
   'Finanzas y Seguros': <DollarSign className="w-8 h-8" />
 };
 
-export const SlideSectores: React.FC = () => {
+export const SectoresSection: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 px-6">
+    <section id="sectores" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -38,7 +39,8 @@ export const SlideSectores: React.FC = () => {
             <motion.div
               key={sector.name}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 hover:border-yellow-500/30 transition-all duration-300 group cursor-pointer"
             >
@@ -76,7 +78,8 @@ export const SlideSectores: React.FC = () => {
         {/* Additional Sectors */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-8 text-center"
         >
@@ -84,10 +87,10 @@ export const SlideSectores: React.FC = () => {
             ¿Tu Sector No Está Listado?
           </h3>
           <p className="text-slate-300 text-lg mb-6 max-w-3xl mx-auto">
-            Trabajamos con empresas de todas las industrias. Nuestras soluciones de IA se adaptan 
+            Trabajamos con empresas de todas las industrias. Nuestras soluciones de IA se adaptan
             a cualquier modelo de negocio y necesidad operativa.
           </p>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-slate-300 text-sm">
             <div>Turismo</div>
             <div>Logística</div>
@@ -107,7 +110,8 @@ export const SlideSectores: React.FC = () => {
         {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center mt-12"
         >
@@ -116,7 +120,7 @@ export const SlideSectores: React.FC = () => {
               Solución Personalizada para Tu Industria
             </h3>
             <p className="text-slate-300 text-lg mb-6">
-              Cada sector tiene desafíos únicos. Desarrollamos soluciones de IA especializadas 
+              Cada sector tiene desafíos únicos. Desarrollamos soluciones de IA especializadas
               que abordan tus necesidades específicas.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -136,6 +140,6 @@ export const SlideSectores: React.FC = () => {
           </div>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
