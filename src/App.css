@@ -16,6 +16,10 @@
     font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
     font-feature-settings: 'cv11', 'ss01';
     font-optical-sizing: auto;
+    /* Fondo uniforme consistente para toda la página */
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    background-attachment: fixed;
+    background-size: 200% 200%;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -25,10 +29,13 @@
 
   #root {
     width: 100%;
+    /* Asegurar que el fondo sea transparente para ver el fondo del body */
+    background: transparent;
   }
 
   .App {
     width: 100%;
+    background: transparent;
   }
 }
 
