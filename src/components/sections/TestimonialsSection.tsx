@@ -19,7 +19,7 @@ const testimonials: Testimonial[] = [
     company: 'TechCorp Solutions',
     rating: 5,
     testimonial:
-      'AutomatizaIA transformó completamente nuestra atención al cliente. El chatbot maneja el 80% de las consultas automáticamente, permitiendo que nuestro equipo se enfoque en casos complejos.',
+      'lexaia transformó completamente nuestra atención al cliente. El chatbot maneja el 80% de las consultas automáticamente, permitiendo que nuestro equipo se enfoque en casos complejos.',
     result: '80% reducción en tiempo de respuesta',
     image: 'https://i.pravatar.cc/150?img=12',
   },

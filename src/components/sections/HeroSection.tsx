@@ -39,7 +39,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigateToForm }) =>
             <div className="p-3 bg-yellow-500/20 backdrop-blur-sm rounded-xl border border-yellow-500/30">
               <Bot className="w-12 h-12 text-yellow-400" />
             </div>
-            <span className="text-3xl font-bold text-white">AutomatizaIA</span>
+            <span className="text-3xl font-bold text-white">lexaia</span>
           </div>
         </motion.div>
 

@@ -11,8 +11,9 @@ const sections: Section[] = [
   { id: 'servicios', label: 'Servicios' },
   { id: 'beneficios', label: 'Beneficios' },
   { id: 'sectores', label: 'Sectores' },
-  { id: 'casos-uso', label: 'Casos de Uso' },
   { id: 'testimonios', label: 'Testimonios' },
+  { id: 'pricing', label: 'Precios' },
+  { id: 'faq', label: 'FAQ' },
   { id: 'formulario', label: 'Contacto' },
 ];
 

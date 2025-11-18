@@ -24,7 +24,7 @@ export const AIChatbot: React.FC = () => {
         {
           role: 'assistant',
           content:
-            '¡Hola! 👋 Soy el asistente virtual de AutomatizaIA. Estoy aquí para ayudarte a descubrir cómo la inteligencia artificial puede transformar tu empresa.\n\n¿En qué puedo ayudarte hoy?',
+            '¡Hola! 👋 Soy el asistente virtual de lexaia. Estoy aquí para ayudarte a descubrir cómo la inteligencia artificial puede transformar tu empresa.\n\n¿En qué puedo ayudarte hoy?',
         },
       ]);
     }
@@ -146,7 +146,7 @@ export const AIChatbot: React.FC = () => {
             <div className="bg-gradient-to-r from-primary to-accent p-4 flex items-center gap-3">
               <div className="relative">
                 <div className="p-2 bg-slate-900 rounded-full">
-                  <Bot className="w-6 h-6 text-primary" />
+                  <Sparkles className="w-6 h-6 text-primary" />
                 </div>
                 <motion.div
                   className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-slate-900"
@@ -157,7 +157,7 @@ export const AIChatbot: React.FC = () => {
                 />
               </div>
               <div className="flex-1">
-                <h3 className="font-bold text-slate-900">Asistente AutomatizaIA</h3>
+                <h3 className="font-bold text-slate-900">Asistente <span className="text-primary">lexaia</span></h3>
                 <p className="text-xs text-slate-800 flex items-center gap-1">
                   <Sparkles className="w-3 h-3" />
                   Powered by AI
