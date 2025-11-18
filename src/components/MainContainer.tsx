@@ -1,4 +1,6 @@
 import React from 'react';
+import { Navbar } from './Navbar';
+import { Footer } from './Footer';
 import { HeroSection } from './sections/HeroSection';
 import { ServiciosSection } from './sections/ServiciosSection';
 import { BeneficiosSection } from './sections/BeneficiosSection';
@@ -24,12 +26,14 @@ export const MainContainer: React.FC = () => {
 
   return (
     <div className="w-full">
+      <Navbar onNavigateToForm={handleScrollToForm} />
       <HeroSection onNavigateToForm={handleScrollToForm} />
       <ServiciosSection />
       <BeneficiosSection />
       <SectoresSection />
       <CasosUsoSection />
       <FormularioSection onSubmit={handleFormSubmit} />
+      <Footer />
     </div>
   );
 };

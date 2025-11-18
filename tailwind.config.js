@@ -16,24 +16,36 @@ module.exports = {
 			},
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				heading: ['Poppins', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				// Primary brand colors (yellow/gold)
 				primary: {
-					DEFAULT: '#2B5D3A',
-					foreground: 'hsl(var(--primary-foreground))',
+					DEFAULT: '#EAB308', // yellow-500
+					light: '#FBBF24',   // yellow-400
+					dark: '#CA8A04',    // yellow-600
+					foreground: '#0F172A', // slate-900 (for text on yellow bg)
 				},
+				// Accent colors (orange)
+				accent: {
+					DEFAULT: '#F97316', // orange-500
+					light: '#FB923C',   // orange-400
+					dark: '#EA580C',    // orange-600
+					foreground: '#0F172A', // slate-900
+				},
+				// Secondary (used for subtle elements)
 				secondary: {
-					DEFAULT: '#4A90E2',
+					DEFAULT: '#64748B', // slate-500
 					foreground: 'hsl(var(--secondary-foreground))',
 				},
-				accent: {
-					DEFAULT: '#F5A623',
-					foreground: 'hsl(var(--accent-foreground))',
-				},
+				// Status colors
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))',

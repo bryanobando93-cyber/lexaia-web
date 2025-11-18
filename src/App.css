@@ -13,6 +13,14 @@
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+    font-optical-sizing: auto;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Inter', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
   }
 
   #root {
@@ -28,17 +36,21 @@
   .slide-container {
     @apply min-h-screen w-full;
   }
-  
+
   .gradient-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400;
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-accent;
   }
-  
+
   .glass-card {
     @apply bg-slate-800/50 backdrop-blur-sm border border-slate-700/50;
   }
-  
+
   .btn-primary {
-    @apply bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-slate-900 font-bold transition-all duration-300;
+    @apply bg-gradient-to-r from-primary to-accent hover:from-primary-light hover:to-accent-light text-primary-foreground font-bold transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply bg-slate-700 hover:bg-slate-600 text-white font-semibold transition-all duration-300;
   }
 }
 
