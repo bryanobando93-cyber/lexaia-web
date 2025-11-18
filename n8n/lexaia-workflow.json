@@ -1,0 +1,377 @@
+{
+  "name": "lexaia - Complete Lead Management Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "lexaia-lead",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "name": "Webhook - Recibir Lead",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "lexaia-lead-webhook",
+      "id": "webhook-lead"
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "table": "leads",
+        "columns": "nombre,email,telefono,empresa,sector,mensaje,source,utm_source,utm_medium,utm_campaign",
+        "additionalFields": {}
+      },
+      "name": "Supabase - Guardar Lead",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [450, 300],
+      "credentials": {
+        "supabaseApi": {
+          "id": "1",
+          "name": "Supabase API"
+        }
+      },
+      "id": "supabase-insert-lead"
+    },
+    {
+      "parameters": {
+        "url": "https://api.cal.com/v1/bookings",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "eventTypeId",
+              "value": "={{ $json.event_type_id }}"
+            },
+            {
+              "name": "name",
+              "value": "={{ $json.nombre }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.email }}"
+            },
+            {
+              "name": "metadata",
+              "value": "={{ { empresa: $json.empresa, telefono: $json.telefono } }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Cal.com - Crear Cita (Opcional)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [650, 200],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "2",
+          "name": "Cal.com API Key"
+        }
+      },
+      "id": "calcom-create-booking",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Eres un asistente de ventas de lexaia. Analiza el siguiente lead y genera una respuesta personalizada:\n\nNombre: {{ $json.nombre }}\nEmpresa: {{ $json.empresa }}\nSector: {{ $json.sector }}\nMensaje: {{ $json.mensaje }}\n\nGenera un email de respuesta profesional y personalizado.",
+        "options": {
+          "temperature": 0.7,
+          "maxTokens": 500
+        }
+      },
+      "name": "DeepSeek - Generar Respuesta IA",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [650, 300],
+      "credentials": {
+        "openAiApi": {
+          "id": "3",
+          "name": "DeepSeek API"
+        }
+      },
+      "id": "deepseek-generate-response"
+    },
+    {
+      "parameters": {
+        "fromEmail": "hola@lexaia.ai",
+        "toEmail": "={{ $('Supabase - Guardar Lead').item.json.email }}",
+        "subject": "¡Gracias por contactar a lexaia!",
+        "emailType": "html",
+        "message": "={{ $('DeepSeek - Generar Respuesta IA').item.json.choices[0].message.content }}",
+        "options": {
+          "appendN8nAttribution": false
+        }
+      },
+      "name": "Email - Respuesta al Cliente",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [850, 300],
+      "credentials": {
+        "smtp": {
+          "id": "4",
+          "name": "SMTP Gmail"
+        }
+      },
+      "id": "email-send-customer"
+    },
+    {
+      "parameters": {
+        "fromEmail": "hola@lexaia.ai",
+        "toEmail": "equipo@lexaia.ai",
+        "subject": "🎯 Nuevo Lead: {{ $('Supabase - Guardar Lead').item.json.nombre }}",
+        "emailType": "html",
+        "message": "<h2>Nuevo Lead Recibido</h2>\n<p><strong>Nombre:</strong> {{ $('Supabase - Guardar Lead').item.json.nombre }}</p>\n<p><strong>Email:</strong> {{ $('Supabase - Guardar Lead').item.json.email }}</p>\n<p><strong>Teléfono:</strong> {{ $('Supabase - Guardar Lead').item.json.telefono }}</p>\n<p><strong>Empresa:</strong> {{ $('Supabase - Guardar Lead').item.json.empresa }}</p>\n<p><strong>Sector:</strong> {{ $('Supabase - Guardar Lead').item.json.sector }}</p>\n<p><strong>Mensaje:</strong> {{ $('Supabase - Guardar Lead').item.json.mensaje }}</p>\n<p><strong>Fuente:</strong> {{ $('Supabase - Guardar Lead').item.json.source }}</p>\n<hr>\n<p>Responder en menos de 24 horas.</p>",
+        "options": {}
+      },
+      "name": "Email - Notificación Equipo",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [850, 400],
+      "credentials": {
+        "smtp": {
+          "id": "4",
+          "name": "SMTP Gmail"
+        }
+      },
+      "id": "email-send-team"
+    },
+    {
+      "parameters": {
+        "url": "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"text\": \"🚀 Nuevo Lead en lexaia\",\n  \"blocks\": [\n    {\n      \"type\": \"header\",\n      \"text\": {\n        \"type\": \"plain_text\",\n        \"text\": \"🎯 Nuevo Lead Capturado\"\n      }\n    },\n    {\n      \"type\": \"section\",\n      \"fields\": [\n        {\n          \"type\": \"mrkdwn\",\n          \"text\": \"*Nombre:*\\n{{ $('Supabase - Guardar Lead').item.json.nombre }}\"\n        },\n        {\n          \"type\": \"mrkdwn\",\n          \"text\": \"*Email:*\\n{{ $('Supabase - Guardar Lead').item.json.email }}\"\n        },\n        {\n          \"type\": \"mrkdwn\",\n          \"text\": \"*Empresa:*\\n{{ $('Supabase - Guardar Lead').item.json.empresa }}\"\n        },\n        {\n          \"type\": \"mrkdwn\",\n          \"text\": \"*Teléfono:*\\n{{ $('Supabase - Guardar Lead').item.json.telefono }}\"\n        }\n      ]\n    },\n    {\n      \"type\": \"section\",\n      \"text\": {\n        \"type\": \"mrkdwn\",\n        \"text\": \"*Mensaje:*\\n{{ $('Supabase - Guardar Lead').item.json.mensaje }}\"\n      }\n    },\n    {\n      \"type\": \"context\",\n      \"elements\": [\n        {\n          \"type\": \"mrkdwn\",\n          \"text\": \"Fuente: {{ $('Supabase - Guardar Lead').item.json.source }} | Sector: {{ $('Supabase - Guardar Lead').item.json.sector }}\"\n        }\n      ]\n    }\n  ]\n}",
+        "options": {}
+      },
+      "name": "Slack - Notificación",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [850, 500],
+      "id": "slack-notification"
+    },
+    {
+      "parameters": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/YOUR_SPREADSHEET_ID/values/Leads!A:J:append",
+        "authentication": "oAuth2",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"values\": [[\n    \"{{ $('Supabase - Guardar Lead').item.json.created_at }}\",\n    \"{{ $('Supabase - Guardar Lead').item.json.nombre }}\",\n    \"{{ $('Supabase - Guardar Lead').item.json.email }}\",\n    \"{{ $('Supabase - Guardar Lead').item.json.telefono }}\",\n    \"{{ $('Supabase - Guardar Lead').item.json.empresa }}\",\n    \"{{ $('Supabase - Guardar Lead').item.json.sector }}\",\n    \"{{ $('Supabase - Guardar Lead').item.json.mensaje }}\",\n    \"{{ $('Supabase - Guardar Lead').item.json.source }}\",\n    \"{{ $('Supabase - Guardar Lead').item.json.utm_source }}\",\n    \"{{ $('Supabase - Guardar Lead').item.json.utm_campaign }}\"\n  ]],\n  \"valueInputOption\": \"USER_ENTERED\"\n}",
+        "options": {
+          "qs": {
+            "parameters": [
+              {
+                "name": "valueInputOption",
+                "value": "USER_ENTERED"
+              }
+            ]
+          }
+        }
+      },
+      "name": "Google Sheets - Añadir Fila",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [850, 600],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5",
+          "name": "Google Sheets OAuth2"
+        }
+      },
+      "id": "google-sheets-append"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"success\": true,\n  \"message\": \"Lead procesado correctamente\",\n  \"lead_id\": \"{{ $('Supabase - Guardar Lead').item.json.id }}\",\n  \"timestamp\": \"{{ $now.toISO() }}\"\n}",
+        "options": {}
+      },
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1050, 300],
+      "id": "webhook-response"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.mensaje }}",
+              "operation": "contains",
+              "value2": "urgente"
+            }
+          ]
+        }
+      },
+      "name": "IF - Lead Urgente?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [650, 400],
+      "id": "if-urgent"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "table": "leads",
+        "updateColumns": "status",
+        "columnValues": "urgent",
+        "filters": {
+          "conditions": [
+            {
+              "column": "id",
+              "operator": "eq",
+              "value": "={{ $('Supabase - Guardar Lead').item.json.id }}"
+            }
+          ]
+        }
+      },
+      "name": "Supabase - Marcar como Urgente",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [850, 700],
+      "credentials": {
+        "supabaseApi": {
+          "id": "1",
+          "name": "Supabase API"
+        }
+      },
+      "id": "supabase-update-urgent"
+    },
+    {
+      "parameters": {
+        "url": "https://api.whatsapp.com/send",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "+573165375761"
+            },
+            {
+              "name": "text",
+              "value": "=🚨 LEAD URGENTE\nNombre: {{ $('Supabase - Guardar Lead').item.json.nombre }}\nEmpresa: {{ $('Supabase - Guardar Lead').item.json.empresa }}\nMensaje: {{ $('Supabase - Guardar Lead').item.json.mensaje }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "WhatsApp - Alerta Urgente",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [1050, 700],
+      "id": "whatsapp-urgent-alert"
+    }
+  ],
+  "connections": {
+    "Webhook - Recibir Lead": {
+      "main": [
+        [
+          {
+            "node": "Supabase - Guardar Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase - Guardar Lead": {
+      "main": [
+        [
+          {
+            "node": "DeepSeek - Generar Respuesta IA",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "IF - Lead Urgente?",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Email - Notificación Equipo",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Slack - Notificación",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Google Sheets - Añadir Fila",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DeepSeek - Generar Respuesta IA": {
+      "main": [
+        [
+          {
+            "node": "Email - Respuesta al Cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email - Respuesta al Cliente": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF - Lead Urgente?": {
+      "main": [
+        [
+          {
+            "node": "Supabase - Marcar como Urgente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase - Marcar como Urgente": {
+      "main": [
+        [
+          {
+            "node": "WhatsApp - Alerta Urgente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-18T00:00:00.000Z",
+  "versionId": "1"
+}

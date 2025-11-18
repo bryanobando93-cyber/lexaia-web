@@ -3,12 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Bot, User, Loader2, Sparkles } from 'lucide-react';
 import { DeepSeekService, Message } from '../lib/deepseek';
 import { analyticsEvents } from '../lib/analytics';
+import { chatService, ChatConversation } from '../lib/chatService';
 
 export const AIChatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [currentConversation, setCurrentConversation] = useState<ChatConversation | null>(null);
+  const [isLoadingHistory, setIsLoadingHistory] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const deepSeekService = useRef(new DeepSeekService());
 
@@ -17,18 +20,79 @@ export const AIChatbot: React.FC = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // Send initial greeting when chat opens
+  // Load or create conversation when chat opens
   useEffect(() => {
-    if (isOpen && messages.length === 0) {
-      setMessages([
-        {
-          role: 'assistant',
-          content:
-            '¡Hola! 👋 Soy el asistente virtual de lexaia. Estoy aquí para ayudarte a descubrir cómo la inteligencia artificial puede transformar tu empresa.\n\n¿En qué puedo ayudarte hoy?',
-        },
-      ]);
-    }
-  }, [isOpen, messages.length]);
+    const initializeConversation = async () => {
+      if (!isOpen || currentConversation) return;
+
+      setIsLoadingHistory(true);
+
+      try {
+        // Intentar obtener o crear conversación en Supabase
+        const conversation = await chatService.getOrCreateConversation();
+
+        if (conversation) {
+          setCurrentConversation(conversation);
+
+          // Cargar historial de mensajes
+          const history = await chatService.getMessages(conversation.id);
+
+          if (history.length > 0) {
+            // Convertir mensajes de Supabase al formato del chatbot
+            const chatMessages: Message[] = history.map((msg) => ({
+              role: msg.role,
+              content: msg.content,
+            }));
+            setMessages(chatMessages);
+          } else {
+            // Si no hay historial, enviar mensaje de bienvenida
+            const welcomeMessage: Message = {
+              role: 'assistant',
+              content:
+                '¡Hola! 👋 Soy el asistente virtual de lexaia. Estoy aquí para ayudarte a descubrir cómo la inteligencia artificial puede transformar tu empresa.\n\n¿En qué puedo ayudarte hoy?',
+            };
+            setMessages([welcomeMessage]);
+
+            // Guardar mensaje de bienvenida en Supabase
+            await chatService.saveMessage(
+              conversation.id,
+              'assistant',
+              welcomeMessage.content,
+              { model: 'deepseek-chat' }
+            );
+          }
+        } else {
+          // Fallback: usar memoria si Supabase falla
+          console.warn('No se pudo conectar con Supabase, usando memoria local');
+          if (messages.length === 0) {
+            setMessages([
+              {
+                role: 'assistant',
+                content:
+                  '¡Hola! 👋 Soy el asistente virtual de lexaia. Estoy aquí para ayudarte a descubrir cómo la inteligencia artificial puede transformar tu empresa.\n\n¿En qué puedo ayudarte hoy?',
+              },
+            ]);
+          }
+        }
+      } catch (error) {
+        console.error('Error inicializando conversación:', error);
+        // Fallback a memoria
+        if (messages.length === 0) {
+          setMessages([
+            {
+              role: 'assistant',
+              content:
+                '¡Hola! 👋 Soy el asistente virtual de lexaia. Estoy aquí para ayudarte a descubrir cómo la inteligencia artificial puede transformar tu empresa.\n\n¿En qué puedo ayudarte hoy?',
+            },
+          ]);
+        }
+      } finally {
+        setIsLoadingHistory(false);
+      }
+    };
+
+    initializeConversation();
+  }, [isOpen]);
 
   const handleToggleChat = () => {
     if (!isOpen) {
@@ -53,12 +117,20 @@ export const AIChatbot: React.FC = () => {
     // Track message sent
     analyticsEvents.chatMessageSent(userMessage.length);
 
+    // Guardar mensaje del usuario en Supabase
+    if (currentConversation) {
+      await chatService.saveMessage(currentConversation.id, 'user', userMessage);
+    }
+
     // Show typing indicator
     setIsTyping(true);
+
+    const startTime = Date.now();
 
     try {
       // Get AI response
       const aiResponse = await deepSeekService.current.sendMessage(userMessage);
+      const responseTime = Date.now() - startTime;
 
       // Add AI response to UI
       const newAIMessage: Message = {
@@ -66,16 +138,32 @@ export const AIChatbot: React.FC = () => {
         content: aiResponse,
       };
       setMessages((prev) => [...prev, newAIMessage]);
+
+      // Guardar respuesta del asistente en Supabase
+      if (currentConversation) {
+        await chatService.saveMessage(currentConversation.id, 'assistant', aiResponse, {
+          model: 'deepseek-chat',
+          response_time_ms: responseTime,
+        });
+      }
     } catch (error) {
       console.error('Error getting AI response:', error);
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: 'assistant',
-          content:
-            'Disculpa, tuve un problema al procesar tu mensaje. Por favor intenta de nuevo o completa nuestro formulario de contacto.',
-        },
-      ]);
+      const errorMessage = {
+        role: 'assistant' as const,
+        content:
+          'Disculpa, tuve un problema al procesar tu mensaje. Por favor intenta de nuevo o completa nuestro formulario de contacto.',
+      };
+      setMessages((prev) => [...prev, errorMessage]);
+
+      // Guardar mensaje de error en Supabase
+      if (currentConversation) {
+        await chatService.saveMessage(
+          currentConversation.id,
+          'assistant',
+          errorMessage.content,
+          { model: 'deepseek-chat' }
+        );
+      }
     } finally {
       setIsTyping(false);
     }

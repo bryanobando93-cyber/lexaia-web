@@ -1,8 +1,13 @@
+import { createClient } from '@supabase/supabase-js';
+
 // Supabase configuration
 export const supabaseConfig = {
   url: import.meta.env.VITE_SUPABASE_URL || 'https://placeholder.supabase.co',
   anonKey: import.meta.env.VITE_SUPABASE_ANON_KEY || 'placeholder_key'
 };
+
+// Create Supabase client
+export const supabase = createClient(supabaseConfig.url, supabaseConfig.anonKey);
 
 // Function URLs for edge functions
 export const edgeFunctions = {

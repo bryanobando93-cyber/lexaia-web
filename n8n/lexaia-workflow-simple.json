@@ -1,0 +1,151 @@
+{
+  "name": "lexaia - Lead Management Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "lexaia-lead",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-node",
+      "name": "Webhook - Recibir Lead",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        240,
+        300
+      ],
+      "webhookId": "lexaia-lead-webhook"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SUPABASE_URL }}/rest/v1/leads",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "supabaseApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=representation"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nombre",
+              "value": "={{ $json.body.nombre }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.body.email }}"
+            },
+            {
+              "name": "telefono",
+              "value": "={{ $json.body.telefono }}"
+            },
+            {
+              "name": "empresa",
+              "value": "={{ $json.body.empresa }}"
+            },
+            {
+              "name": "sector",
+              "value": "={{ $json.body.sector }}"
+            },
+            {
+              "name": "mensaje",
+              "value": "={{ $json.body.mensaje }}"
+            },
+            {
+              "name": "source",
+              "value": "={{ $json.body.source || 'website' }}"
+            },
+            {
+              "name": "utm_source",
+              "value": "={{ $json.body.utm_source }}"
+            },
+            {
+              "name": "utm_medium",
+              "value": "={{ $json.body.utm_medium }}"
+            },
+            {
+              "name": "utm_campaign",
+              "value": "={{ $json.body.utm_campaign }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "supabase-node",
+      "name": "Supabase - Guardar Lead",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        460,
+        300
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "YOUR_SUPABASE_CREDENTIAL_ID",
+          "name": "Supabase API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ {\n  \"success\": true,\n  \"message\": \"Lead recibido correctamente\",\n  \"lead_id\": $json.id,\n  \"timestamp\": $now.toISO()\n} }}",
+        "options": {}
+      },
+      "id": "response-node",
+      "name": "Webhook Response - Confirmación",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        680,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook - Recibir Lead": {
+      "main": [
+        [
+          {
+            "node": "Supabase - Guardar Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase - Guardar Lead": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response - Confirmación",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-18T00:00:00.000Z",
+  "versionId": "1"
+}

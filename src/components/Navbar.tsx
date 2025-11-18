@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Menu, X } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface NavbarProps {
   onNavigateToForm?: () => void;
@@ -10,15 +11,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToForm }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navLinks = [
-    { id: 'hero', label: 'Inicio' },
-    { id: 'servicios', label: 'Servicios' },
-    { id: 'beneficios', label: 'Beneficios' },
-    { id: 'pricing', label: 'Precios' },
-    { id: 'testimonios', label: 'Testimonios' },
-    { id: 'faq', label: 'FAQ' },
-    { id: 'formulario', label: 'Contacto' },
+    { id: 'hero', label: 'Inicio', type: 'scroll' },
+    { id: 'servicios', label: 'Servicios', type: 'scroll' },
+    { id: 'beneficios', label: 'Beneficios', type: 'scroll' },
+    { id: 'pricing', label: 'Precios', type: 'scroll' },
+    { id: 'testimonios', label: 'Testimonios', type: 'scroll' },
+    { id: 'faq', label: 'FAQ', type: 'scroll' },
+    { id: 'blog', label: 'Blog', type: 'route' },
+    { id: 'formulario', label: 'Contacto', type: 'scroll' },
   ];
 
   useEffect(() => {
@@ -42,6 +46,31 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToForm }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleNavigation = (link: { id: string; label: string; type: string }) => {
+    setIsMobileMenuOpen(false);
+
+    if (link.type === 'route') {
+      navigate(`/${link.id}`);
+    } else {
+      // Si estamos en una ruta diferente, primero navegar a home
+      if (location.pathname !== '/') {
+        navigate('/');
+        // Esperar a que cargue la página antes de hacer scroll
+        setTimeout(() => {
+          const element = document.getElementById(link.id);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      } else {
+        const element = document.getElementById(link.id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }
+  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -92,9 +121,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToForm }) => {
               {navLinks.map((link) => (
                 <button
                   key={link.id}
-                  onClick={() => scrollToSection(link.id)}
+                  onClick={() => handleNavigation(link)}
                   className={`text-sm font-medium transition-all duration-200 hover:text-primary ${
-                    activeSection === link.id
+                    (link.type === 'route' && location.pathname.startsWith(`/${link.id}`)) ||
+                    (link.type === 'scroll' && activeSection === link.id && location.pathname === '/')
                       ? 'text-primary font-semibold'
                       : 'text-slate-300'
                   }`}
@@ -143,9 +173,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToForm }) => {
               {navLinks.map((link) => (
                 <button
                   key={link.id}
-                  onClick={() => scrollToSection(link.id)}
+                  onClick={() => handleNavigation(link)}
                   className={`block w-full text-left px-4 py-3 rounded-lg transition-all duration-200 ${
-                    activeSection === link.id
+                    (link.type === 'route' && location.pathname.startsWith(`/${link.id}`)) ||
+                    (link.type === 'scroll' && activeSection === link.id && location.pathname === '/')
                       ? 'bg-primary/20 text-primary font-semibold'
                       : 'text-slate-300 hover:bg-slate-800 hover:text-white'
                   }`}
