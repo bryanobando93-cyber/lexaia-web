@@ -58,9 +58,22 @@
   .text-shadow {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+
   .text-shadow-lg {
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .text-shadow-xl {
+    text-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  /* WCAG AA Compliant Text Colors */
+  .text-body {
+    @apply text-slate-200;
+  }
+
+  .text-body-muted {
+    @apply text-slate-300;
   }
 }
 

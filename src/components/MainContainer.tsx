@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
+import { ScrollProgressIndicator } from './ScrollProgressIndicator';
 import { HeroSection } from './sections/HeroSection';
 import { ServiciosSection } from './sections/ServiciosSection';
 import { BeneficiosSection } from './sections/BeneficiosSection';
@@ -27,6 +28,7 @@ export const MainContainer: React.FC = () => {
   return (
     <div className="w-full">
       <Navbar onNavigateToForm={handleScrollToForm} />
+      <ScrollProgressIndicator />
       <HeroSection onNavigateToForm={handleScrollToForm} />
       <ServiciosSection />
       <BeneficiosSection />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { LeadForm } from '../LeadForm';
+import { LeadFormMultiStep } from '../LeadFormMultiStep';
 import { LeadFormData } from '../../types';
 import { Mail, Phone, MessageSquare } from 'lucide-react';
 
@@ -31,9 +31,9 @@ export const FormularioSection: React.FC<FormularioSectionProps> = ({ onSubmit }
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
             Comienza Tu{' '}
-            <span className="text-yellow-400">Transformación</span>
+            <span className="text-primary">Transformación</span>
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
             Completa el formulario y nuestro equipo de expertos se pondrá en contacto contigo
@@ -56,25 +56,25 @@ export const FormularioSection: React.FC<FormularioSectionProps> = ({ onSubmit }
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0" />
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
                   <p className="text-slate-300">
                     <strong className="text-white">Experiencia Comprobada:</strong> Más de 100 empresas transformadas exitosamente
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0" />
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
                   <p className="text-slate-300">
                     <strong className="text-white">Tecnología Avanzada:</strong> IA de última generación con aprendizaje continuo
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0" />
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
                   <p className="text-slate-300">
                     <strong className="text-white">Soporte Completo:</strong> Acompañamiento desde implementación hasta optimización
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0" />
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
                   <p className="text-slate-300">
                     <strong className="text-white">ROI Garantizado:</strong> Resultados medibles desde la primera semana
                   </p>
@@ -89,40 +89,40 @@ export const FormularioSection: React.FC<FormularioSectionProps> = ({ onSubmit }
               </h4>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-yellow-400" />
+                  <Mail className="w-5 h-5 text-primary" />
                   <span className="text-slate-300">contacto@automatizaia.com</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-yellow-400" />
+                  <Phone className="w-5 h-5 text-primary" />
                   <span className="text-slate-300">+57 (301) 555-0123</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <MessageSquare className="w-5 h-5 text-yellow-400" />
+                  <MessageSquare className="w-5 h-5 text-primary" />
                   <span className="text-slate-300">WhatsApp: +57 (301) 555-0123</span>
                 </div>
               </div>
             </div>
 
             {/* Process Timeline */}
-            <div className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/20 rounded-xl p-6 backdrop-blur-sm">
+            <div className="bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 rounded-xl p-6 backdrop-blur-sm">
               <h4 className="text-xl font-bold text-white mb-4">
                 Qué pasa después de enviar el formulario:
               </h4>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-6 h-6 bg-yellow-500 text-slate-900 rounded-full flex items-center justify-center text-sm font-bold">1</div>
+                  <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">1</div>
                   <span className="text-slate-300">Contacto en menos de 24 horas</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-6 h-6 bg-yellow-500 text-slate-900 rounded-full flex items-center justify-center text-sm font-bold">2</div>
+                  <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">2</div>
                   <span className="text-slate-300">Análisis gratuito de tus necesidades</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-6 h-6 bg-yellow-500 text-slate-900 rounded-full flex items-center justify-center text-sm font-bold">3</div>
+                  <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">3</div>
                   <span className="text-slate-300">Propuesta personalizada</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-6 h-6 bg-yellow-500 text-slate-900 rounded-full flex items-center justify-center text-sm font-bold">4</div>
+                  <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">4</div>
                   <span className="text-slate-300">Implementación y transformación</span>
                 </div>
               </div>
@@ -136,7 +136,7 @@ export const FormularioSection: React.FC<FormularioSectionProps> = ({ onSubmit }
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <LeadForm onSubmit={onSubmit} />
+            <LeadFormMultiStep onSubmit={onSubmit} />
           </motion.div>
         </div>
       </div>
