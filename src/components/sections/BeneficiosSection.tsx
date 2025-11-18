@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { BENEFICIOS_CUANTIFICABLES } from '../../data/constants';
-import { TrendingUp, Clock, Shield, Zap } from 'lucide-react';
+import { TrendingUp, Clock, Shield, Zap, Calculator } from 'lucide-react';
 import { DynamicIcon } from '../DynamicIcon';
+import { SecondaryCTA } from '../SecondaryCTA';
 
 export const BeneficiosSection: React.FC = () => {
   const additionalBenefits = [
@@ -138,6 +139,28 @@ export const BeneficiosSection: React.FC = () => {
               <div className="text-slate-300">Satisfacción de clientes</div>
             </div>
           </div>
+        </motion.div>
+
+        {/* Secondary CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="text-center mt-8"
+        >
+          <SecondaryCTA
+            text="Calcular Mi ROI"
+            icon={Calculator}
+            variant="primary"
+            location="beneficios_section"
+            onClick={() => {
+              const formularioElement = document.getElementById('formulario');
+              if (formularioElement) {
+                formularioElement.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          />
         </motion.div>
       </div>
     </section>

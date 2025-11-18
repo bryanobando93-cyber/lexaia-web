@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -6,6 +6,7 @@ import { Send, CheckCircle, AlertCircle, Cloud, Database, ArrowRight, ArrowLeft,
 import { LeadFormData, leadFormSchema } from '../lib/validations';
 import { SECTORES_OPCIONES, TAMANO_EMPRESA_OPCIONES, INTERES_PRINCIPAL_OPCIONES } from '../data/constants';
 import { submitLead } from '../lib/supabase';
+import { analyticsEvents } from '../lib/analytics';
 import { clsx } from 'clsx';
 
 interface LeadFormMultiStepProps {
@@ -21,8 +22,17 @@ export const LeadFormMultiStep: React.FC<LeadFormMultiStepProps> = ({ onSubmit }
     message?: string;
   } | null>(null);
   const [showOptionalFields, setShowOptionalFields] = useState(false);
+  const [hasTrackedFormStart, setHasTrackedFormStart] = useState(false);
 
   const totalSteps = 2;
+
+  // Track form start on first interaction
+  useEffect(() => {
+    if (!hasTrackedFormStart) {
+      analyticsEvents.formStart('contact_form');
+      setHasTrackedFormStart(true);
+    }
+  }, [hasTrackedFormStart]);
 
   const {
     register,
@@ -45,6 +55,8 @@ export const LeadFormMultiStep: React.FC<LeadFormMultiStepProps> = ({ onSubmit }
     const isValid = await trigger(fieldsToValidate);
 
     if (isValid) {
+      // Track step completion
+      analyticsEvents.formStepComplete(currentStep);
       setCurrentStep(currentStep + 1);
     }
   };
@@ -57,6 +69,9 @@ export const LeadFormMultiStep: React.FC<LeadFormMultiStepProps> = ({ onSubmit }
     setIsSubmitting(true);
     try {
       const result = await submitLead(data);
+
+      // Track successful form submission
+      analyticsEvents.formSubmit('contact_form');
 
       setSubmissionInfo({
         fallback: result.fallback || false,
@@ -72,6 +87,7 @@ export const LeadFormMultiStep: React.FC<LeadFormMultiStepProps> = ({ onSubmit }
         setIsSuccess(false);
         setSubmissionInfo(null);
         setCurrentStep(1);
+        setHasTrackedFormStart(false); // Reset for next form submission
       }, 8000);
     } catch (error) {
       console.error('Error submitting form:', error);
