@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, CheckCircle, AlertCircle, Cloud, Database, ArrowRight, ArrowLeft, ChevronRight } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle, Cloud, Database, ArrowRight, ArrowLeft, ChevronRight, Loader2 } from 'lucide-react';
 import { LeadFormData, leadFormSchema } from '../lib/validations';
 import { SECTORES_OPCIONES, TAMANO_EMPRESA_OPCIONES, INTERES_PRINCIPAL_OPCIONES } from '../data/constants';
 import { submitLead } from '../lib/supabase';
 import { analyticsEvents } from '../lib/analytics';
+import { SuccessAnimation } from './SuccessAnimation';
 import { clsx } from 'clsx';
 
 interface LeadFormMultiStepProps {
@@ -107,32 +108,17 @@ export const LeadFormMultiStep: React.FC<LeadFormMultiStepProps> = ({ onSubmit }
     }
   };
 
+  // Show success animation
   if (isSuccess) {
     return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="bg-green-500/10 border border-green-500/20 rounded-xl p-8 text-center backdrop-blur-sm"
-      >
-        <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-        <h3 className="text-2xl font-heading font-bold text-green-500 mb-2">
-          ¡Gracias por tu interés!
-        </h3>
-        <p className="text-green-400 mb-4">
-          {submissionInfo?.message || 'Hemos recibido tu solicitud exitosamente.'}
-        </p>
-
-        {submissionInfo?.fallback && (
-          <div className="flex items-center justify-center gap-2 text-yellow-400 text-sm mb-4">
-            <Database className="w-4 h-4" />
-            <span>Datos almacenados de forma segura localmente</span>
-          </div>
-        )}
-
-        <p className="text-slate-300 text-sm">
-          Nuestro equipo se pondrá en contacto contigo en las próximas 24 horas para discutir cómo podemos transformar tu empresa con IA.
-        </p>
-      </motion.div>
+      <>
+        <SuccessAnimation
+          isVisible={isSuccess}
+          message={submissionInfo?.message || '¡Hemos recibido tu solicitud exitosamente!'}
+        />
+        {/* Placeholder for form container */}
+        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700/50 p-8 opacity-50" />
+      </>
     );
   }
 
@@ -470,7 +456,7 @@ export const LeadFormMultiStep: React.FC<LeadFormMultiStepProps> = ({ onSubmit }
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="w-5 h-5 border-2 border-slate-900/30 border-t-slate-900 rounded-full animate-spin" />
+                      <Loader2 className="w-5 h-5 animate-spin" />
                       Enviando...
                     </>
                   ) : (

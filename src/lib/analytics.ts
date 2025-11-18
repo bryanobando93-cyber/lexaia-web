@@ -82,6 +82,19 @@ export const analyticsEvents = {
   externalLinkClick: (url: string, linkText: string) => {
     trackEvent('external_link_click', { url, link_text: linkText });
   },
+
+  // Chat events
+  chatOpen: () => {
+    trackEvent('chat_open');
+  },
+
+  chatMessageSent: (messageLength: number) => {
+    trackEvent('chat_message_sent', { message_length: messageLength });
+  },
+
+  chatClosed: () => {
+    trackEvent('chat_closed');
+  },
 };
 
 // Scroll depth tracking
