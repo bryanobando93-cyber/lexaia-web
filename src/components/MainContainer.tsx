@@ -3,9 +3,14 @@ import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { ScrollProgressIndicator } from './ScrollProgressIndicator';
 import { BackToTopButton } from './BackToTopButton';
+import { WhatsAppButton } from './WhatsAppButton';
 import { AIChatbot } from './AIChatbot';
 import { HeroSection } from './sections/HeroSection';
 import { LoadingSpinner } from './LoadingSpinner';
+import { ROICalculator } from './ROICalculator';
+import { LiveStats } from './LiveStats';
+import { TrustBadges } from './TrustBadges';
+import { ExitIntentPopup } from './ExitIntentPopup';
 import { LeadFormData } from '../types';
 
 // Lazy load non-critical sections for better performance
@@ -14,6 +19,8 @@ const BeneficiosSection = lazy(() => import('./sections/BeneficiosSection').then
 const SectoresSection = lazy(() => import('./sections/SectoresSection').then(m => ({ default: m.SectoresSection })));
 const CasosUsoSection = lazy(() => import('./sections/CasosUsoSection').then(m => ({ default: m.CasosUsoSection })));
 const TestimonialsSection = lazy(() => import('./sections/TestimonialsSection').then(m => ({ default: m.TestimonialsSection })));
+const PricingSection = lazy(() => import('./sections/PricingSection').then(m => ({ default: m.PricingSection })));
+const FAQSection = lazy(() => import('./sections/FAQSection').then(m => ({ default: m.FAQSection })));
 const FormularioSection = lazy(() => import('./sections/FormularioSection').then(m => ({ default: m.FormularioSection })));
 
 export const MainContainer: React.FC = () => {
@@ -47,6 +54,20 @@ export const MainContainer: React.FC = () => {
         <BeneficiosSection />
       </Suspense>
 
+      {/* Live Stats */}
+      <section className="py-16 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        <div className="max-w-7xl mx-auto">
+          <LiveStats />
+        </div>
+      </section>
+
+      {/* ROI Calculator */}
+      <section className="py-16 px-6 bg-slate-900">
+        <div className="max-w-5xl mx-auto">
+          <ROICalculator />
+        </div>
+      </section>
+
       <Suspense fallback={<LoadingSpinner />}>
         <SectoresSection />
       </Suspense>
@@ -60,13 +81,30 @@ export const MainContainer: React.FC = () => {
       </Suspense>
 
       <Suspense fallback={<LoadingSpinner />}>
+        <PricingSection />
+      </Suspense>
+
+      <Suspense fallback={<LoadingSpinner />}>
+        <FAQSection />
+      </Suspense>
+
+      <Suspense fallback={<LoadingSpinner />}>
         <FormularioSection onSubmit={handleFormSubmit} />
       </Suspense>
 
+      {/* Trust Badges */}
+      <section className="py-8 px-6 bg-slate-900 border-t border-slate-800">
+        <div className="max-w-7xl mx-auto">
+          <TrustBadges />
+        </div>
+      </section>
+
       <Footer />
 
-      {/* AI Chatbot */}
+      {/* Floating Widgets */}
+      <WhatsAppButton />
       <AIChatbot />
+      <ExitIntentPopup />
     </div>
   );
 };

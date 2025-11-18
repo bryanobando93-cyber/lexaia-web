@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
                 <Bot className="w-6 h-6 text-primary" />
               </div>
               <span className="text-xl font-heading font-bold text-white">
-                AutomatizaIA
+                lexaia
               </span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
@@ -196,7 +196,7 @@ export const Footer: React.FC = () => {
         <div className="border-t border-slate-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-slate-500 text-sm text-center md:text-left">
-              © {currentYear} AutomatizaIA. Todos los derechos reservados.
+              © {currentYear} lexaia. Todos los derechos reservados.
             </p>
             <div className="flex items-center gap-6">
               <span className="text-slate-500 text-xs">

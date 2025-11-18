@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Bot, Menu, X } from 'lucide-react';
+import { Sparkles, Menu, X } from 'lucide-react';
 
 interface NavbarProps {
   onNavigateToForm?: () => void;
@@ -15,9 +15,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToForm }) => {
     { id: 'hero', label: 'Inicio' },
     { id: 'servicios', label: 'Servicios' },
     { id: 'beneficios', label: 'Beneficios' },
-    { id: 'sectores', label: 'Sectores' },
-    { id: 'casos-uso', label: 'Casos de Uso' },
+    { id: 'pricing', label: 'Precios' },
     { id: 'testimonios', label: 'Testimonios' },
+    { id: 'faq', label: 'FAQ' },
     { id: 'formulario', label: 'Contacto' },
   ];
 
@@ -71,10 +71,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToForm }) => {
               className="flex items-center gap-2 group"
             >
               <div className="p-2 bg-primary/20 backdrop-blur-sm rounded-lg border border-primary/30 group-hover:bg-primary/30 transition-colors">
-                <Bot className="w-6 h-6 text-primary" />
+                <Sparkles className="w-6 h-6 text-primary" />
               </div>
-              <span className="text-xl font-heading font-bold text-white">
-                AutomatizaIA
+              <span className="text-xl font-heading font-bold text-primary">
+                lexaia
               </span>
             </button>
 
