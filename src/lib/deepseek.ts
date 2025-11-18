@@ -1,5 +1,5 @@
 // DeepSeek API Integration for AI Chatbot
-const DEEPSEEK_API_KEY = 'sk-3969572d232141718786764c50b3148d';
+const DEEPSEEK_API_KEY = import.meta.env.VITE_DEEPSEEK_API_KEY;
 const DEEPSEEK_API_URL = 'https://api.deepseek.com/v1/chat/completions';
 
 export interface Message {
