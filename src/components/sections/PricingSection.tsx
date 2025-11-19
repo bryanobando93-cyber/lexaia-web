@@ -7,7 +7,8 @@ type Currency = 'USD' | 'COP' | 'MXN' | 'EUR' | 'ARS' | 'CLP';
 interface PricingPlan {
   name: string;
   description: string;
-  prices: Record<Currency, number>;
+  prices?: Record<Currency, number>;
+  customPrice?: string;
   icon: React.ReactNode;
   features: string[];
   popular?: boolean;
@@ -65,14 +66,7 @@ const plans: PricingPlan[] = [
   {
     name: 'Enterprise',
     description: 'Soluciones a medida para grandes empresas',
-    prices: {
-      USD: 749,
-      COP: 3000000,
-      MXN: 13500,
-      EUR: 687,
-      ARS: 675000,
-      CLP: 675000,
-    },
+    customPrice: 'Personalizable',
     icon: <Crown className="w-8 h-8" />,
     features: [
       'Consultas ilimitadas',
@@ -198,10 +192,15 @@ export const PricingSection: React.FC = () => {
 
               {/* Price */}
               <div className="text-center mb-8">
-                <div className="text-4xl font-bold text-white mb-2">
-                  {formatPrice(plan.prices[selectedCurrency], selectedCurrency)}
-                  <span className="text-lg text-slate-400 font-normal">/mes</span>
-                </div>
+                {plan.customPrice ? (
+                  <div className="text-4xl font-bold text-white mb-2">
+                    {plan.customPrice}
+                  </div>
+                ) : (
+                  <div className="text-4xl font-bold text-white mb-2">
+                    {formatPrice(plan.prices![selectedCurrency], selectedCurrency)}
+                  </div>
+                )}
               </div>
 
               {/* Features */}

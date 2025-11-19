@@ -1,19 +1,41 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { MainContainer } from './components/MainContainer';
-import { BlogPage } from './pages/BlogPage';
-import { BlogPostPage } from './pages/BlogPostPage';
 import './App.css';
+
+// Lazy load pages for code splitting
+const BlogPage = lazy(() => import('./pages/BlogPage').then(module => ({ default: module.BlogPage })));
+const BlogPostPage = lazy(() => import('./pages/BlogPostPage').then(module => ({ default: module.BlogPostPage })));
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage').then(module => ({ default: module.PrivacyPolicyPage })));
+const TermsPage = lazy(() => import('./pages/TermsPage').then(module => ({ default: module.TermsPage })));
+const CookiePolicyPage = lazy(() => import('./pages/CookiePolicyPage').then(module => ({ default: module.CookiePolicyPage })));
+const LegalNoticePage = lazy(() => import('./pages/LegalNoticePage').then(module => ({ default: module.LegalNoticePage })));
+
+// Loading component
+const PageLoader = () => (
+  <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
+    <div className="text-center">
+      <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-primary border-t-transparent"></div>
+      <p className="text-slate-400 mt-4">Cargando...</p>
+    </div>
+  </div>
+);
 
 function App() {
   return (
     <Router basename="/lexaia-web">
       <div className="App">
-        <Routes>
-          <Route path="/" element={<MainContainer />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/blog/:slug" element={<BlogPostPage />} />
-        </Routes>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<MainContainer />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
+            <Route path="/privacidad" element={<PrivacyPolicyPage />} />
+            <Route path="/terminos" element={<TermsPage />} />
+            <Route path="/cookies" element={<CookiePolicyPage />} />
+            <Route path="/aviso-legal" element={<LegalNoticePage />} />
+          </Routes>
+        </Suspense>
       </div>
     </Router>
   );

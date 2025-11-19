@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShoppingCart, Users, BarChart3, Calendar, Headphones, Cog, CheckCircle } from 'lucide-react';
+import { useLazyBackground } from '../../hooks/useLazyBackground';
 
 const casosDeUso = [
   {
@@ -78,14 +79,19 @@ const casosDeUso = [
 ];
 
 export const CasosUsoSection: React.FC = () => {
+  const { elementRef, isLoaded } = useLazyBackground('/images/customer-service.jpg');
+
   return (
     <section id="casos-uso" className="min-h-screen flex items-center justify-center relative overflow-hidden py-20 px-6">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          ref={elementRef}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-500"
           style={{
-            backgroundImage: 'url(/images/customer-service.jpg)'
+            backgroundImage: isLoaded ? 'url(/images/customer-service.jpg)' : 'none',
+            backgroundColor: isLoaded ? 'transparent' : '#1e293b',
+            opacity: isLoaded ? 1 : 0.5
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95" />
