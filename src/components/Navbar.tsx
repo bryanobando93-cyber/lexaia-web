@@ -97,16 +97,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToForm }) => {
             {/* Logo */}
             <button
               onClick={() => scrollToSection('hero')}
-              className="flex items-center gap-2 sm:gap-3 group focus:outline-none"
+              className="flex items-center group focus:outline-none"
             >
               <img
                 src={`${import.meta.env.BASE_URL}images/logo.png`}
-                alt="lexaia logo"
-                className="h-8 w-8 sm:h-10 sm:w-10 object-contain transition-transform group-hover:scale-105"
+                alt="Lexaia - Inteligencia Artificial"
+                className="h-8 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105"
               />
-              <span className="text-lg sm:text-xl font-heading font-bold text-primary leading-none">
-                lexaia
-              </span>
             </button>
 
             {/* Desktop Navigation */}
