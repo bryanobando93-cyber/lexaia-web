@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Bot, Sparkles, ArrowRight } from 'lucide-react';
-import { NeuralNetworkBackground } from '../NeuralNetworkBackground';
 
 interface HeroSectionProps {
   onNavigateToForm: () => void;
@@ -10,9 +9,6 @@ interface HeroSectionProps {
 export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigateToForm }) => {
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Neural Network 3D Background */}
-      <NeuralNetworkBackground />
-
       {/* Subtle overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900/40 via-transparent to-slate-900/40 pointer-events-none" />
 
