@@ -100,7 +100,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToForm }) => {
               className="flex items-center gap-3 group"
             >
               <img
-                src="/images/logo.png"
+                src={`${import.meta.env.BASE_URL}images/logo.png`}
                 alt="lexaia"
                 className="h-10 w-auto transition-transform group-hover:scale-105"
               />
