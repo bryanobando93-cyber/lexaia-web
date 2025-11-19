@@ -37,7 +37,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigateToForm }) =>
         >
           Transforma tu Empresa con{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">
-            Automatización Inteligente
+            Soluciones Inteligentes
           </span>
         </motion.h1>
 
@@ -48,7 +48,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigateToForm }) =>
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-xl md:text-2xl text-slate-200 mb-8 max-w-4xl mx-auto leading-relaxed text-shadow"
         >
-          Revoluciona la comunicación y operaciones de tu negocio con tecnología de Inteligencia Artificial de última generación, diseñada para impulsar el éxito en cualquier industria
+          Acelera el crecimiento de tu negocio con Inteligencia Artificial de última generación, diseñada para optimizar la comunicación y operaciones de tu empresa
         </motion.p>
 
         {/* Key Benefits Icons */}
