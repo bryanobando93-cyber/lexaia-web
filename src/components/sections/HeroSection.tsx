@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Bot, Sparkles, ArrowRight } from 'lucide-react';
+import { NeuralNetworkBackground } from '../NeuralNetworkBackground';
 
 interface HeroSectionProps {
   onNavigateToForm: () => void;
@@ -9,23 +10,11 @@ interface HeroSectionProps {
 export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigateToForm }) => {
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url(/images/hero-bg.jpg)'
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90" />
-        <div className="absolute inset-0 bg-black/20" />
-      </div>
+      {/* Neural Network 3D Background */}
+      <NeuralNetworkBackground />
 
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-      </div>
+      {/* Subtle overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/40 via-transparent to-slate-900/40 pointer-events-none" />
 
       <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
         {/* Main Title */}
