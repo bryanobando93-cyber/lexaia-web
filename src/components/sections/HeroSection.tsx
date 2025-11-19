@@ -28,21 +28,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigateToForm }) =>
       </div>
 
       <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
-        {/* Logo/Brand */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-8"
-        >
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="p-3 bg-yellow-500/20 backdrop-blur-sm rounded-xl border border-yellow-500/30">
-              <Bot className="w-12 h-12 text-yellow-400" />
-            </div>
-            <span className="text-3xl font-bold text-white">lexaia</span>
-          </div>
-        </motion.div>
-
         {/* Main Title */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
