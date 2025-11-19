@@ -60,6 +60,8 @@ export const NeuralNetworkBackground: React.FC<NeuralNetworkBackgroundProps> = (
     const sphereGeometry = new THREE.SphereGeometry(1.5, 64, 64);
     const sphereMaterial = new THREE.MeshPhysicalMaterial({
       color: 0x00d9ff,
+      emissive: 0x00d9ff,
+      emissiveIntensity: 0,
       transparent: true,
       opacity: 0.15,
       metalness: 0.1,
@@ -211,43 +213,46 @@ export const NeuralNetworkBackground: React.FC<NeuralNetworkBackgroundProps> = (
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
 
-      // Rotate sphere slowly
+      // Rotate sphere at visible speed
       if (sphereRef.current) {
-        sphereRef.current.rotation.y += 0.001;
+        sphereRef.current.rotation.y += 0.005; // 5x faster - now clearly visible
+        sphereRef.current.rotation.x += 0.002; // Add X rotation for more dynamism
       }
 
-      // Pulse nodes
+      // Pulse nodes with increased speed and intensity
       const time = Date.now() * 0.001;
       nodesRef.current.forEach((node) => {
-        const scale = 1 + Math.sin(time * 2 + node.pulsePhase) * 0.3;
+        const scale = 1 + Math.sin(time * 3 + node.pulsePhase) * 0.5; // Faster pulse, larger scale
         node.mesh.scale.set(scale, scale, scale);
 
-        // Update opacity based on pulse
+        // Update opacity based on pulse - more dramatic
         const material = node.mesh.material as THREE.MeshBasicMaterial;
-        material.opacity = 0.4 + Math.sin(time * 2 + node.pulsePhase) * 0.4;
+        material.opacity = 0.3 + Math.sin(time * 3 + node.pulsePhase) * 0.6; // Wider opacity range
       });
 
-      // Animate line flow (simulated with opacity pulses)
-      flowOffset += 0.01;
+      // Animate line flow with visible traveling effect
+      flowOffset += 0.05; // 5x faster flow
       linesRef.current.forEach((line, i) => {
         const material = line.material as THREE.LineBasicMaterial;
-        const pulse = Math.sin(flowOffset + i * 0.1);
-        material.opacity = 0.2 + pulse * 0.2;
+        const pulse = Math.sin(flowOffset + i * 0.3); // More variation between lines
+        material.opacity = 0.15 + pulse * 0.4; // More dramatic opacity changes
       });
 
-      // Hover effect
+      // Enhanced hover effect - more dramatic
       if (isHoveringRef.current && sphereRef.current) {
-        const targetScale = 1.1;
-        sphereRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.1);
+        const targetScale = 1.2; // Larger scale increase
+        sphereRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.15);
 
         const material = sphereRef.current.material as THREE.MeshPhysicalMaterial;
-        material.opacity = Math.min(material.opacity + 0.01, 0.25);
+        material.opacity = Math.min(material.opacity + 0.02, 0.35); // More opacity
+        material.emissiveIntensity = 0.5; // Add glow
       } else if (sphereRef.current) {
         const targetScale = 1.0;
-        sphereRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.1);
+        sphereRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.15);
 
         const material = sphereRef.current.material as THREE.MeshPhysicalMaterial;
-        material.opacity = Math.max(material.opacity - 0.01, 0.15);
+        material.opacity = Math.max(material.opacity - 0.02, 0.15);
+        material.emissiveIntensity = 0;
       }
 
       renderer.render(scene, camera);
@@ -415,10 +420,11 @@ export const NeuralNetworkBackground: React.FC<NeuralNetworkBackgroundProps> = (
       {/* 3D Canvas Container */}
       <div
         ref={containerRef}
-        className={`absolute inset-0 transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${className}`}
+        className={`inset-0 transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${className} z-0`}
         style={{
           background: 'radial-gradient(circle at center, #0a1929 0%, #000814 100%)',
-          cursor: isHoveringRef.current ? 'pointer' : 'default'
+          cursor: isHoveringRef.current ? 'pointer' : 'default',
+          pointerEvents: 'auto'
         }}
       />
     </>

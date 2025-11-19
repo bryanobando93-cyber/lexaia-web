@@ -11,6 +11,7 @@ import { ROICalculator } from './ROICalculator';
 import { LiveStats } from './LiveStats';
 import { TrustBadges } from './TrustBadges';
 import { ExitIntentPopup } from './ExitIntentPopup';
+import { NeuralNetworkBackground } from './NeuralNetworkBackground';
 import { LeadFormData } from '../types';
 
 // Lazy load non-critical sections for better performance
@@ -39,11 +40,16 @@ export const MainContainer: React.FC = () => {
   };
 
   return (
-    <div className="w-full">
-      <Navbar onNavigateToForm={handleScrollToForm} />
-      <ScrollProgressIndicator />
-      <BackToTopButton />
-      <HeroSection onNavigateToForm={handleScrollToForm} />
+    <div className="w-full relative">
+      {/* Fixed Neural Network Background for entire page */}
+      <NeuralNetworkBackground className="fixed" />
+
+      {/* All content with relative positioning to appear above background */}
+      <div className="relative z-10">
+        <Navbar onNavigateToForm={handleScrollToForm} />
+        <ScrollProgressIndicator />
+        <BackToTopButton />
+        <HeroSection onNavigateToForm={handleScrollToForm} />
 
       {/* Lazy-loaded sections with loading fallback */}
       <Suspense fallback={<LoadingSpinner />}>
@@ -99,12 +105,13 @@ export const MainContainer: React.FC = () => {
         </div>
       </section>
 
-      <Footer />
+        <Footer />
 
-      {/* Floating Widgets */}
-      <WhatsAppButton />
-      <AIChatbot />
-      <ExitIntentPopup />
+        {/* Floating Widgets */}
+        <WhatsAppButton />
+        <AIChatbot />
+        <ExitIntentPopup />
+      </div>
     </div>
   );
 };
