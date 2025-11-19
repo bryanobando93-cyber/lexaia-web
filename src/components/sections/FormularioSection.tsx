@@ -3,20 +3,26 @@ import { motion } from 'framer-motion';
 import { LeadFormMultiStep } from '../LeadFormMultiStep';
 import { LeadFormData } from '../../types';
 import { Mail, Phone, MessageSquare } from 'lucide-react';
+import { useLazyBackground } from '../../hooks/useLazyBackground';
 
 interface FormularioSectionProps {
   onSubmit: (data: LeadFormData) => Promise<void>;
 }
 
 export const FormularioSection: React.FC<FormularioSectionProps> = ({ onSubmit }) => {
+  const { elementRef, isLoaded } = useLazyBackground('/images/business-team.jpg');
+
   return (
     <section id="formulario" className="min-h-screen flex items-center justify-center relative overflow-hidden py-20 px-6">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          ref={elementRef}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-500"
           style={{
-            backgroundImage: 'url(/images/business-team.jpg)'
+            backgroundImage: isLoaded ? 'url(/images/business-team.jpg)' : 'none',
+            backgroundColor: isLoaded ? 'transparent' : '#1e293b',
+            opacity: isLoaded ? 1 : 0.5
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95" />
@@ -90,15 +96,15 @@ export const FormularioSection: React.FC<FormularioSectionProps> = ({ onSubmit }
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-primary" />
-                  <span className="text-slate-300">contacto@automatizaia.com</span>
+                  <span className="text-slate-300">contacto@lexaia.com</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-primary" />
-                  <span className="text-slate-300">+57 (301) 555-0123</span>
+                  <span className="text-slate-300">+57 (316) 537-5761</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <MessageSquare className="w-5 h-5 text-primary" />
-                  <span className="text-slate-300">WhatsApp: +57 (301) 555-0123</span>
+                  <span className="text-slate-300">WhatsApp: +57 (316) 537-5761</span>
                 </div>
               </div>
             </div>

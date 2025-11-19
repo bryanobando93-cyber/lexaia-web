@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bot, Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook } from 'lucide-react';
+import { Bot, Mail, Phone, MapPin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -25,47 +25,9 @@ export const Footer: React.FC = () => {
                 lexaia
               </span>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed mb-6">
+            <p className="text-slate-400 text-sm leading-relaxed">
               Transformamos empresas con soluciones de automatización e inteligencia artificial de última generación.
             </p>
-            <div className="flex items-center gap-3">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-slate-800 hover:bg-primary hover:text-slate-900 text-slate-400 rounded-lg transition-all duration-200"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-slate-800 hover:bg-primary hover:text-slate-900 text-slate-400 rounded-lg transition-all duration-200"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-slate-800 hover:bg-primary hover:text-slate-900 text-slate-400 rounded-lg transition-all duration-200"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-slate-800 hover:bg-primary hover:text-slate-900 text-slate-400 rounded-lg transition-all duration-200"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -162,10 +124,10 @@ export const Footer: React.FC = () => {
                 <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                 <div>
                   <a
-                    href="mailto:contacto@automatizaia.com"
+                    href="mailto:contacto@lexaia.com"
                     className="text-slate-400 hover:text-primary transition-colors text-sm block"
                   >
-                    contacto@automatizaia.com
+                    contacto@lexaia.com
                   </a>
                 </div>
               </li>
@@ -173,10 +135,10 @@ export const Footer: React.FC = () => {
                 <Phone className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                 <div>
                   <a
-                    href="tel:+573015550123"
+                    href="tel:+573165375761"
                     className="text-slate-400 hover:text-primary transition-colors text-sm block"
                   >
-                    +57 (301) 555-0123
+                    +57 (316) 537-5761
                   </a>
                 </div>
               </li>
@@ -200,7 +162,7 @@ export const Footer: React.FC = () => {
             </p>
             <div className="flex items-center gap-6">
               <span className="text-slate-500 text-xs">
-                Hecho con ❤️ en Colombia
+                Hecho en Colombia
               </span>
             </div>
           </div>
