@@ -21,7 +21,7 @@ const faqs: FAQ[] = [
   {
     question: '¿Cuál es el costo aproximado para una pequeña empresa?',
     answer:
-      'Nuestro plan Starter comienza desde $299 USD mensuales ($1,200,000 COP), diseñado específicamente para pequeñas empresas. Incluye chatbot IA, integración web/WhatsApp, y demo gratuito de 1 mes. Sin costos de setup ni permanencia mínima.',
+      'Nuestro plan Starter comienza desde $149 USD mensuales ($600,000 COP), diseñado específicamente para pequeñas empresas. Incluye chatbot IA, integración web/WhatsApp, y demo gratuito de 1 mes. Sin costos de setup ni permanencia mínima.',
   },
   {
     question: '¿Ofrecen soporte post-implementación?',

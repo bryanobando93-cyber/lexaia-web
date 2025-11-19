@@ -62,7 +62,7 @@ export const MainContainer: React.FC = () => {
       </section>
 
       {/* ROI Calculator */}
-      <section className="py-16 px-6 bg-slate-900">
+      <section className="py-16 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
         <div className="max-w-5xl mx-auto">
           <ROICalculator />
         </div>
@@ -93,7 +93,7 @@ export const MainContainer: React.FC = () => {
       </Suspense>
 
       {/* Trust Badges */}
-      <section className="py-8 px-6 bg-slate-900 border-t border-slate-800">
+      <section className="py-8 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-t border-slate-800">
         <div className="max-w-7xl mx-auto">
           <TrustBadges />
         </div>
