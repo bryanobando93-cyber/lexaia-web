@@ -20,8 +20,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToForm }) => {
     { id: 'beneficios', label: 'Beneficios', type: 'scroll' },
     { id: 'pricing', label: 'Precios', type: 'scroll' },
     { id: 'testimonios', label: 'Testimonios', type: 'scroll' },
-    { id: 'faq', label: 'FAQ', type: 'scroll' },
-    { id: 'aula-virtual', label: 'Aula Virtual', type: 'scroll' },
+    { id: 'faq', label: 'FAQ', type: 'route' },
+    { id: 'aula-virtual', label: 'Aula Virtual', type: 'route' },
     { id: 'blog', label: 'Blog', type: 'route' },
     { id: 'formulario', label: 'Contacto', type: 'scroll' },
   ];
