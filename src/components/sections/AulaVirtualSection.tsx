@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, BookOpen, Video, Users, Clock } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface AulaVirtualSectionProps {
   lmsUrl?: string; // URL for Skool community or other LMS platform
@@ -11,6 +12,28 @@ export const AulaVirtualSection: React.FC<AulaVirtualSectionProps> = ({
   lmsUrl = '',
   isEnabled = false
 }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleContactClick = () => {
+    // Si estamos en la página principal, hacer scroll
+    if (location.pathname === '/' || location.pathname === '/lexaia-web' || location.pathname === '/lexaia-web/') {
+      const formularioElement = document.getElementById('formulario');
+      if (formularioElement) {
+        formularioElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Si estamos en otra página (como /aula-virtual), navegar a la página principal y luego hacer scroll
+      navigate('/');
+      setTimeout(() => {
+        const formularioElement = document.getElementById('formulario');
+        if (formularioElement) {
+          formularioElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
+
   const features = [
     {
       icon: <BookOpen className="w-8 h-8" />,
@@ -132,12 +155,7 @@ export const AulaVirtualSection: React.FC<AulaVirtualSectionProps> = ({
                   Únete a la Comunidad Skool
                 </a>
                 <button
-                  onClick={() => {
-                    const element = document.getElementById('formulario');
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                  }}
+                  onClick={handleContactClick}
                   className="text-yellow-400 hover:text-yellow-300 font-medium transition-colors duration-200 flex items-center gap-2"
                 >
                   ¿Tienes preguntas? Contáctanos
@@ -181,12 +199,7 @@ export const AulaVirtualSection: React.FC<AulaVirtualSectionProps> = ({
             <p className="text-slate-400 text-sm">
               ¿Tienes preguntas sobre nuestros cursos?{' '}
               <button
-                onClick={() => {
-                  const element = document.getElementById('formulario');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
-                }}
+                onClick={handleContactClick}
                 className="text-yellow-400 hover:text-yellow-300 font-medium transition-colors duration-200 underline"
               >
                 Contáctanos
