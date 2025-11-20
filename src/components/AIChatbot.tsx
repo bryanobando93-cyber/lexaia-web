@@ -235,9 +235,7 @@ export const AIChatbot: React.FC = () => {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed z-50 bg-slate-900/95 backdrop-blur-xl border-2 border-primary/30 shadow-2xl flex flex-col overflow-hidden
-                       md:bottom-24 md:right-6 md:w-96 md:h-[600px] md:max-h-[calc(100vh-8rem)] md:rounded-2xl
-                       bottom-0 left-0 right-0 top-0 sm:top-auto sm:h-[85vh] sm:rounded-t-2xl"
+            className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] h-[500px] sm:h-[600px] max-h-[80vh] bg-slate-900/95 backdrop-blur-xl border-2 border-primary/30 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-primary to-accent p-4 flex items-center gap-3">
@@ -263,7 +261,7 @@ export const AIChatbot: React.FC = () => {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 overscroll-contain">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 overscroll-contain" style={{ WebkitOverflowScrolling: 'touch' }}>
               {messages.map((message, index) => (
                 <motion.div
                   key={index}

@@ -24,12 +24,12 @@ export const BlogPostPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 pt-24 pb-16">
+    <div className="min-h-screen bg-white pt-24 pb-16">
       <article className="max-w-4xl mx-auto px-6">
         {/* Back Button */}
         <Link
           to="/blog"
-          className="inline-flex items-center gap-2 text-slate-400 hover:text-primary transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-slate-600 hover:text-primary transition-colors mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
           Volver al blog
@@ -42,16 +42,16 @@ export const BlogPostPage: React.FC = () => {
           className="mb-8"
         >
           <div className="mb-4">
-            <span className="px-4 py-2 bg-primary/20 backdrop-blur-sm text-primary font-semibold rounded-full border border-primary/30">
+            <span className="px-4 py-2 bg-primary/10 text-primary font-semibold rounded-full border border-primary/20">
               {post.category}
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-5xl font-heading font-bold text-slate-900 mb-6">
             {post.title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-4 text-slate-400 mb-6">
+          <div className="flex flex-wrap items-center gap-4 text-slate-600 mb-6">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" />
               <span>{new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
@@ -65,7 +65,7 @@ export const BlogPostPage: React.FC = () => {
             </div>
             <button
               onClick={sharePost}
-              className="ml-auto flex items-center gap-2 text-slate-400 hover:text-primary transition-colors"
+              className="ml-auto flex items-center gap-2 text-slate-600 hover:text-primary transition-colors"
             >
               <Share2 className="w-4 h-4" />
               Compartir
@@ -76,7 +76,7 @@ export const BlogPostPage: React.FC = () => {
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 bg-slate-700/50 text-slate-300 text-sm rounded-md flex items-center gap-1"
+                className="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded-md flex items-center gap-1"
               >
                 <Tag className="w-3 h-3" />
                 {tag}
@@ -104,16 +104,16 @@ export const BlogPostPage: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="prose prose-invert prose-lg max-w-none
-            prose-headings:font-heading prose-headings:text-white
+          className="prose prose-slate prose-lg max-w-none
+            prose-headings:font-heading prose-headings:text-slate-900
             prose-h2:text-3xl prose-h2:mb-4 prose-h2:mt-8
             prose-h3:text-2xl prose-h3:mb-3 prose-h3:mt-6
-            prose-p:text-slate-300 prose-p:leading-relaxed
+            prose-p:text-slate-700 prose-p:leading-relaxed
             prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-            prose-strong:text-white prose-strong:font-semibold
-            prose-ul:text-slate-300 prose-li:marker:text-primary
-            prose-code:text-primary prose-code:bg-slate-800 prose-code:px-2 prose-code:py-1 prose-code:rounded
-            prose-blockquote:border-l-primary prose-blockquote:bg-slate-800/50 prose-blockquote:p-4 prose-blockquote:rounded-r"
+            prose-strong:text-slate-900 prose-strong:font-semibold
+            prose-ul:text-slate-700 prose-li:marker:text-primary
+            prose-code:text-primary prose-code:bg-slate-100 prose-code:px-2 prose-code:py-1 prose-code:rounded
+            prose-blockquote:border-l-primary prose-blockquote:bg-slate-50 prose-blockquote:p-4 prose-blockquote:rounded-r prose-blockquote:text-slate-700"
         >
           <ReactMarkdown>{post.content}</ReactMarkdown>
         </motion.div>
@@ -123,12 +123,12 @@ export const BlogPostPage: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="mt-16 p-8 bg-gradient-to-r from-primary/20 to-purple-600/20 rounded-xl border border-primary/30"
+          className="mt-16 p-8 bg-gradient-to-r from-primary/10 to-purple-600/10 rounded-xl border border-primary/20"
         >
-          <h3 className="text-2xl font-heading font-bold text-white mb-4">
+          <h3 className="text-2xl font-heading font-bold text-slate-900 mb-4">
             ¿Listo para transformar tu negocio con IA?
           </h3>
-          <p className="text-slate-300 mb-6">
+          <p className="text-slate-700 mb-6">
             En lexaia te ayudamos a implementar soluciones de automatización personalizadas para tu empresa.
           </p>
           <Link
