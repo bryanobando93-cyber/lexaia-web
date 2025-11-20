@@ -12,13 +12,20 @@ export const AIChatbot: React.FC = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [currentConversation, setCurrentConversation] = useState<ChatConversation | null>(null);
   const [isLoadingHistory, setIsLoadingHistory] = useState(false);
+  const [isInputFocused, setIsInputFocused] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const deepSeekService = useRef(new DeepSeekService());
 
-  // Auto-scroll to bottom when new messages arrive
+  // Auto-scroll to bottom when new messages arrive or input is focused
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+    // Pequeño delay para asegurar que el DOM se actualizó
+    const scrollTimeout = setTimeout(() => {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }, 100);
+
+    return () => clearTimeout(scrollTimeout);
+  }, [messages, isInputFocused]);
 
   // Load or create conversation when chat opens
   useEffect(() => {
@@ -228,7 +235,9 @@ export const AIChatbot: React.FC = () => {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] h-[600px] max-h-[calc(100vh-8rem)] bg-slate-900/95 backdrop-blur-xl border-2 border-primary/30 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+            className="fixed z-50 bg-slate-900/95 backdrop-blur-xl border-2 border-primary/30 shadow-2xl flex flex-col overflow-hidden
+                       md:bottom-24 md:right-6 md:w-96 md:h-[600px] md:max-h-[calc(100vh-8rem)] md:rounded-2xl
+                       bottom-0 left-0 right-0 top-0 sm:top-auto sm:h-[85vh] sm:rounded-t-2xl"
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-primary to-accent p-4 flex items-center gap-3">
@@ -254,7 +263,7 @@ export const AIChatbot: React.FC = () => {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 overscroll-contain">
               {messages.map((message, index) => (
                 <motion.div
                   key={index}
@@ -330,13 +339,22 @@ export const AIChatbot: React.FC = () => {
             </div>
 
             {/* Input */}
-            <div className="p-4 border-t border-slate-800 bg-slate-900/50">
+            <div className="p-4 border-t border-slate-800 bg-slate-900/50 shrink-0">
               <div className="flex gap-2">
                 <input
+                  ref={inputRef}
                   type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={handleKeyPress}
+                  onFocus={() => {
+                    setIsInputFocused(true);
+                    // Scroll al final cuando se enfoca el input
+                    setTimeout(() => {
+                      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                    }, 300);
+                  }}
+                  onBlur={() => setIsInputFocused(false)}
                   placeholder="Escribe tu mensaje..."
                   disabled={isTyping}
                   className="flex-1 bg-slate-800 text-slate-200 border border-slate-700/50 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50 disabled:cursor-not-allowed"
