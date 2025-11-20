@@ -72,7 +72,7 @@ export const FAQSection: React.FC = () => {
 
   const handleContactClick = () => {
     // Si estamos en la página principal, hacer scroll
-    if (location.pathname === '/' || location.pathname === '/lexaia-web' || location.pathname === '/lexaia-web/') {
+    if (location.pathname === '/') {
       const formularioElement = document.getElementById('formulario');
       if (formularioElement) {
         formularioElement.scrollIntoView({ behavior: 'smooth' });
