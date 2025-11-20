@@ -63,7 +63,7 @@ export const NeuralNetworkBackground: React.FC<NeuralNetworkBackgroundProps> = (
       emissive: 0x00d9ff,
       emissiveIntensity: 0,
       transparent: true,
-      opacity: 0.15,
+      opacity: 0.225, // Increased 50% from 0.15
       metalness: 0.1,
       roughness: 0.1,
       transmission: 0.9,
@@ -99,7 +99,7 @@ export const NeuralNetworkBackground: React.FC<NeuralNetworkBackgroundProps> = (
         const nodeMaterial = new THREE.MeshBasicMaterial({
           color: 0x00d9ff,
           transparent: true,
-          opacity: 0.8
+          opacity: 0.9 // Increased from 0.8
         });
 
         const nodeMesh = new THREE.Mesh(nodeGeometry, nodeMaterial);
@@ -127,7 +127,7 @@ export const NeuralNetworkBackground: React.FC<NeuralNetworkBackgroundProps> = (
         const nodeMaterial = new THREE.MeshBasicMaterial({
           color: 0x00d9ff,
           transparent: true,
-          opacity: 0.4
+          opacity: 0.6 // Increased 50% from 0.4
         });
 
         const smallNodeGeometry = new THREE.SphereGeometry(0.015, 8, 8);
@@ -177,7 +177,7 @@ export const NeuralNetworkBackground: React.FC<NeuralNetworkBackgroundProps> = (
             const material = new THREE.LineBasicMaterial({
               color: 0x00d9ff,
               transparent: true,
-              opacity: 0.3,
+              opacity: 0.45, // Increased 50% from 0.3
               linewidth: 1
             });
 
@@ -227,7 +227,7 @@ export const NeuralNetworkBackground: React.FC<NeuralNetworkBackgroundProps> = (
 
         // Update opacity based on pulse - more dramatic
         const material = node.mesh.material as THREE.MeshBasicMaterial;
-        material.opacity = 0.3 + Math.sin(time * 3 + node.pulsePhase) * 0.6; // Wider opacity range
+        material.opacity = 0.45 + Math.sin(time * 3 + node.pulsePhase) * 0.6; // Increased base from 0.3 to 0.45
       });
 
       // Animate line flow with visible traveling effect
@@ -235,7 +235,7 @@ export const NeuralNetworkBackground: React.FC<NeuralNetworkBackgroundProps> = (
       linesRef.current.forEach((line, i) => {
         const material = line.material as THREE.LineBasicMaterial;
         const pulse = Math.sin(flowOffset + i * 0.3); // More variation between lines
-        material.opacity = 0.15 + pulse * 0.4; // More dramatic opacity changes
+        material.opacity = 0.225 + pulse * 0.4; // Increased base from 0.15 to 0.225
       });
 
       // Enhanced hover effect - more dramatic
@@ -244,14 +244,14 @@ export const NeuralNetworkBackground: React.FC<NeuralNetworkBackgroundProps> = (
         sphereRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.15);
 
         const material = sphereRef.current.material as THREE.MeshPhysicalMaterial;
-        material.opacity = Math.min(material.opacity + 0.02, 0.35); // More opacity
+        material.opacity = Math.min(material.opacity + 0.02, 0.525); // Increased from 0.35 (50% more)
         material.emissiveIntensity = 0.5; // Add glow
       } else if (sphereRef.current) {
         const targetScale = 1.0;
         sphereRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.15);
 
         const material = sphereRef.current.material as THREE.MeshPhysicalMaterial;
-        material.opacity = Math.max(material.opacity - 0.02, 0.15);
+        material.opacity = Math.max(material.opacity - 0.02, 0.225); // Increased from 0.15
         material.emissiveIntensity = 0;
       }
 

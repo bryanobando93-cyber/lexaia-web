@@ -33,7 +33,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigateToForm }) =>
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-xl md:text-2xl text-slate-200 mb-8 max-w-4xl mx-auto leading-relaxed text-shadow"
         >
-          Acelera el crecimiento de tu negocio con Inteligencia Artificial de última generación, diseñada para optimizar la comunicación y operaciones de tu empresa
+          Acelera el crecimiento de tu negocio con Inteligencia Artificial de última generación, diseñada para optimizar la comunicación y operaciones de tu negocio
         </motion.p>
 
         {/* Key Benefits Icons */}
