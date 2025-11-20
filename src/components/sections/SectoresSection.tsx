@@ -15,8 +15,11 @@ const sectorIcons = {
 
 export const SectoresSection: React.FC = () => {
   return (
-    <section id="sectores" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section id="sectores" className="min-h-screen flex items-center justify-center relative py-20 px-6">
+      {/* Lighter overlay to show neural network background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/35 via-slate-800/25 to-slate-900/35 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

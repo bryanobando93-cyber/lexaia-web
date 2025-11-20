@@ -92,10 +92,10 @@ export const FAQSection: React.FC = () => {
         id="faq"
         className="min-h-screen flex items-center justify-center relative overflow-hidden py-20 px-6"
       >
-        {/* Background */}
+        {/* Background - Lighter overlay to show neural network */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/35 via-slate-800/25 to-slate-900/35" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto w-full">

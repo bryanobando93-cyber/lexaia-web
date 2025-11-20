@@ -36,8 +36,8 @@ export const AulaVirtualSection: React.FC<AulaVirtualSectionProps> = ({
 
   return (
     <section id="aula-virtual" className="relative py-24 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-slate-800/30 to-slate-900/50 pointer-events-none" />
+      {/* Lighter overlay to show neural network background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/35 via-slate-800/25 to-slate-900/35 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Section Header */}
@@ -106,7 +106,7 @@ export const AulaVirtualSection: React.FC<AulaVirtualSectionProps> = ({
               ))}
             </div>
 
-            {/* Coming Soon Notice */}
+            {/* Community Launch Notice */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -117,9 +117,9 @@ export const AulaVirtualSection: React.FC<AulaVirtualSectionProps> = ({
               <div className="inline-flex items-center justify-center w-20 h-20 bg-yellow-500/20 rounded-full mb-6">
                 <GraduationCap className="w-10 h-10 text-yellow-400" />
               </div>
-              <h3 className="text-3xl font-bold text-white mb-4">Próximamente Disponible</h3>
+              <h3 className="text-3xl font-bold text-white mb-4">¡Comunidad Activa!</h3>
               <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-                Estamos preparando una experiencia de aprendizaje excepcional. Nuestra plataforma de educación virtual estará disponible pronto con cursos diseñados específicamente para implementar IA en tu negocio.
+                Únete a nuestra comunidad exclusiva en Skool. Accede a cursos especializados, participa en sesiones en vivo con expertos, y conecta con otros profesionales implementando IA en sus negocios.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
