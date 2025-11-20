@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, HelpCircle } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface FAQ {
   question: string;
@@ -62,9 +63,30 @@ const faqs: FAQ[] = [
 
 export const FAQSection: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const handleContactClick = () => {
+    // Si estamos en la página principal, hacer scroll
+    if (location.pathname === '/' || location.pathname === '/lexaia-web' || location.pathname === '/lexaia-web/') {
+      const formularioElement = document.getElementById('formulario');
+      if (formularioElement) {
+        formularioElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Si estamos en otra página (como /faq), navegar a la página principal y luego hacer scroll
+      navigate('/');
+      setTimeout(() => {
+        const formularioElement = document.getElementById('formulario');
+        if (formularioElement) {
+          formularioElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
   };
 
   return (
@@ -179,12 +201,7 @@ export const FAQSection: React.FC = () => {
                 ¿No encontraste tu respuesta?
               </p>
               <button
-                onClick={() => {
-                  const formularioElement = document.getElementById('formulario');
-                  if (formularioElement) {
-                    formularioElement.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+                onClick={handleContactClick}
                 className="bg-primary hover:bg-primary-dark text-slate-900 px-8 py-3 rounded-lg font-semibold transition-colors"
               >
                 Contáctanos
