@@ -25,7 +25,7 @@ const PageLoader = () => (
 
 function App() {
   return (
-    <Router basename="/lexaia-web">
+    <Router basename="/">
       <div className="App">
         <Suspense fallback={<PageLoader />}>
           <Routes>

@@ -18,6 +18,6 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-    base: '/lexaia-web/',
+    base: '/',
 })
 
