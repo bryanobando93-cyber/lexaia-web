@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, BookOpen, Video, Users, Award, Clock } from 'lucide-react';
+import { GraduationCap, BookOpen, Video, Users, Clock } from 'lucide-react';
 
 interface AulaVirtualSectionProps {
-  lmsUrl?: string; // URL for Moodle or other LMS platform
+  lmsUrl?: string; // URL for Skool community or other LMS platform
   isEnabled?: boolean; // Toggle to show iframe or coming soon
 }
 
@@ -26,11 +26,6 @@ export const AulaVirtualSection: React.FC<AulaVirtualSectionProps> = ({
       icon: <Users className="w-8 h-8" />,
       title: 'Comunidad Activa',
       description: 'Conecta con otros estudiantes, comparte experiencias y colabora en proyectos',
-    },
-    {
-      icon: <Award className="w-8 h-8" />,
-      title: 'Certificaciones',
-      description: 'Obtén certificados reconocidos al completar los cursos y valida tus conocimientos',
     },
     {
       icon: <Clock className="w-8 h-8" />,
@@ -153,22 +148,21 @@ export const AulaVirtualSection: React.FC<AulaVirtualSectionProps> = ({
 
             {/* Integration Instructions (Hidden by default, for developer reference) */}
             {/*
-            TO ENABLE THE LMS:
-            1. Set up your Moodle instance or other LMS platform
-            2. Get the embeddable URL (iframe-compatible)
-            3. Update the component props in MainContainer.tsx:
-               <AulaVirtualSection lmsUrl="https://your-moodle-site.com" isEnabled={true} />
+            TO ENABLE SKOOL:
+            1. Set up your Skool community at skool.com
+            2. Current URL: skool.com/lexaia-9467
+            3. Note: Skool does NOT support iframe embedding into external sites
+            4. Alternative: Link directly to Skool community
 
-            RECOMMENDED PLATFORMS:
-            - Moodle (open source, highly customizable)
-            - BigBlueButton integration for live classes
-            - Canvas LMS
-            - Open edX
+            To link to Skool (recommended approach):
+            - Update the button below to link to: https://www.skool.com/lexaia-9467
+            - Use target="_blank" to open in new tab
 
-            IFRAME REQUIREMENTS:
+            If using an embeddable LMS instead:
+            - Update the component props in MainContainer.tsx:
+              <AulaVirtualSection lmsUrl="https://your-lms-site.com" isEnabled={true} />
             - Ensure X-Frame-Options allows embedding
             - Use HTTPS for the LMS URL
-            - Configure CORS if needed
             */}
           </>
         )}
