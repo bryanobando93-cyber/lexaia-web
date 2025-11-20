@@ -79,38 +79,6 @@ export const SectoresSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Additional Sectors */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-slate-600/50 rounded-xl p-8 text-center"
-        >
-          <h3 className="text-2xl font-bold text-white mb-4">
-            ¿Tu Sector No Está Listado?
-          </h3>
-          <p className="text-slate-300 text-lg mb-6 max-w-3xl mx-auto">
-            Trabajamos con empresas de todas las industrias. Nuestras soluciones de IA se adaptan
-            a cualquier modelo de negocio y necesidad operativa.
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-slate-300 text-sm">
-            <div>Turismo</div>
-            <div>Logística</div>
-            <div>Agricultura</div>
-            <div>Entretenimiento</div>
-            <div>Deportes</div>
-            <div>Gobierno</div>
-            <div>ONGs</div>
-            <div>Consultoría</div>
-            <div>Marketing</div>
-            <div>Arquitectura</div>
-            <div>Legal</div>
-            <div>Y muchos más...</div>
-          </div>
-        </motion.div>
-
         {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

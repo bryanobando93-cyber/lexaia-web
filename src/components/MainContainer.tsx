@@ -21,8 +21,6 @@ const SectoresSection = lazy(() => import('./sections/SectoresSection').then(m =
 const CasosUsoSection = lazy(() => import('./sections/CasosUsoSection').then(m => ({ default: m.CasosUsoSection })));
 const TestimonialsSection = lazy(() => import('./sections/TestimonialsSection').then(m => ({ default: m.TestimonialsSection })));
 const PricingSection = lazy(() => import('./sections/PricingSection').then(m => ({ default: m.PricingSection })));
-const FAQSection = lazy(() => import('./sections/FAQSection').then(m => ({ default: m.FAQSection })));
-const AulaVirtualSection = lazy(() => import('./sections/AulaVirtualSection').then(m => ({ default: m.AulaVirtualSection })));
 const FormularioSection = lazy(() => import('./sections/FormularioSection').then(m => ({ default: m.FormularioSection })));
 
 export const MainContainer: React.FC = () => {
@@ -89,14 +87,6 @@ export const MainContainer: React.FC = () => {
 
       <Suspense fallback={<LoadingSpinner />}>
         <PricingSection />
-      </Suspense>
-
-      <Suspense fallback={<LoadingSpinner />}>
-        <FAQSection />
-      </Suspense>
-
-      <Suspense fallback={<LoadingSpinner />}>
-        <AulaVirtualSection />
       </Suspense>
 
       <Suspense fallback={<LoadingSpinner />}>

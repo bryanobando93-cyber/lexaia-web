@@ -6,6 +6,8 @@ import './App.css';
 // Lazy load pages for code splitting
 const BlogPage = lazy(() => import('./pages/BlogPage').then(module => ({ default: module.BlogPage })));
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage').then(module => ({ default: module.BlogPostPage })));
+const FAQPage = lazy(() => import('./pages/FAQPage').then(module => ({ default: module.FAQPage })));
+const AulaVirtualPage = lazy(() => import('./pages/AulaVirtualPage').then(module => ({ default: module.AulaVirtualPage })));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage').then(module => ({ default: module.PrivacyPolicyPage })));
 const TermsPage = lazy(() => import('./pages/TermsPage').then(module => ({ default: module.TermsPage })));
 const CookiePolicyPage = lazy(() => import('./pages/CookiePolicyPage').then(module => ({ default: module.CookiePolicyPage })));
@@ -30,6 +32,8 @@ function App() {
             <Route path="/" element={<MainContainer />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/aula-virtual" element={<AulaVirtualPage />} />
             <Route path="/privacidad" element={<PrivacyPolicyPage />} />
             <Route path="/terminos" element={<TermsPage />} />
             <Route path="/cookies" element={<CookiePolicyPage />} />
