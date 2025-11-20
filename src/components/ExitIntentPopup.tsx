@@ -5,17 +5,49 @@ import { X, Gift } from 'lucide-react';
 export const ExitIntentPopup: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hasShown, setHasShown] = useState(false);
+  const [pageLoadTime] = useState(Date.now());
+  const [showDelayTimeout, setShowDelayTimeout] = useState<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleMouseLeave = (e: MouseEvent) => {
-      if (!hasShown && e.clientY <= 0) {
-        setIsVisible(true);
-        setHasShown(true);
+      // Check if user has been on page for at least 30 seconds
+      const timeOnPage = Date.now() - pageLoadTime;
+      const minimumTimeOnPage = 30000; // 30 seconds
+
+      // Only trigger if:
+      // 1. Haven't shown before
+      // 2. Mouse leaving through top (exit intent)
+      // 3. User has been on page for at least 30 seconds
+      if (!hasShown && e.clientY <= 0 && timeOnPage >= minimumTimeOnPage) {
+        // Add a 3-second delay before showing popup
+        const timeout = setTimeout(() => {
+          setIsVisible(true);
+          setHasShown(true);
+        }, 3000); // 3 second delay
+
+        setShowDelayTimeout(timeout);
       }
     };
+
+    const handleMouseEnter = () => {
+      // Cancel the delayed popup if mouse comes back
+      if (showDelayTimeout) {
+        clearTimeout(showDelayTimeout);
+        setShowDelayTimeout(null);
+      }
+    };
+
     document.addEventListener('mouseleave', handleMouseLeave);
-    return () => document.removeEventListener('mouseleave', handleMouseLeave);
-  }, [hasShown]);
+    document.addEventListener('mouseenter', handleMouseEnter);
+
+    return () => {
+      document.removeEventListener('mouseleave', handleMouseLeave);
+      document.removeEventListener('mouseenter', handleMouseEnter);
+      if (showDelayTimeout) {
+        clearTimeout(showDelayTimeout);
+      }
+    };
+  }, [hasShown, pageLoadTime, showDelayTimeout]);
 
   if (!isVisible) return null;
 
