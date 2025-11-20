@@ -122,6 +122,15 @@ export const AulaVirtualSection: React.FC<AulaVirtualSectionProps> = ({
                 Estamos preparando una experiencia de aprendizaje excepcional. Nuestra plataforma de educación virtual estará disponible pronto con cursos diseñados específicamente para implementar IA en tu negocio.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a
+                  href="https://www.skool.com/lexaia-9467"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-slate-900 font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  <GraduationCap className="w-5 h-5" />
+                  Únete a la Comunidad Skool
+                </a>
                 <button
                   onClick={() => {
                     const element = document.getElementById('formulario');
@@ -129,20 +138,13 @@ export const AulaVirtualSection: React.FC<AulaVirtualSectionProps> = ({
                       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                   }}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-slate-900 font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
-                >
-                  <Users className="w-5 h-5" />
-                  Únete a la Lista de Espera
-                </button>
-                <a
-                  href="#"
                   className="text-yellow-400 hover:text-yellow-300 font-medium transition-colors duration-200 flex items-center gap-2"
                 >
-                  Más información
+                  ¿Tienes preguntas? Contáctanos
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </a>
+                </button>
               </div>
             </motion.div>
 
