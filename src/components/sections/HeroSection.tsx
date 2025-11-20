@@ -9,8 +9,13 @@ interface HeroSectionProps {
 export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigateToForm }) => {
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Subtle overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/40 via-transparent to-slate-900/40 pointer-events-none" />
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 via-slate-900/50 to-slate-900/70 pointer-events-none" />
+
+      {/* Additional centered overlay for text area */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-full max-w-6xl h-3/4 bg-slate-900/40 blur-3xl" />
+      </div>
 
       <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
         {/* Main Title */}

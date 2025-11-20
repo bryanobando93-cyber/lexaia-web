@@ -63,7 +63,7 @@ export const NeuralNetworkBackground: React.FC<NeuralNetworkBackgroundProps> = (
       emissive: 0x00d9ff,
       emissiveIntensity: 0,
       transparent: true,
-      opacity: 0.225, // Increased 50% from 0.15
+      opacity: 0.08, // Reduced significantly for less distraction (was 0.225)
       metalness: 0.1,
       roughness: 0.1,
       transmission: 0.9,
@@ -99,7 +99,7 @@ export const NeuralNetworkBackground: React.FC<NeuralNetworkBackgroundProps> = (
         const nodeMaterial = new THREE.MeshBasicMaterial({
           color: 0x00d9ff,
           transparent: true,
-          opacity: 0.9 // Increased from 0.8
+          opacity: 0.3 // Reduced for less distraction (was 0.9)
         });
 
         const nodeMesh = new THREE.Mesh(nodeGeometry, nodeMaterial);
@@ -127,7 +127,7 @@ export const NeuralNetworkBackground: React.FC<NeuralNetworkBackgroundProps> = (
         const nodeMaterial = new THREE.MeshBasicMaterial({
           color: 0x00d9ff,
           transparent: true,
-          opacity: 0.6 // Increased 50% from 0.4
+          opacity: 0.2 // Reduced for less distraction (was 0.6)
         });
 
         const smallNodeGeometry = new THREE.SphereGeometry(0.015, 8, 8);
@@ -177,7 +177,7 @@ export const NeuralNetworkBackground: React.FC<NeuralNetworkBackgroundProps> = (
             const material = new THREE.LineBasicMaterial({
               color: 0x00d9ff,
               transparent: true,
-              opacity: 0.45, // Increased 50% from 0.3
+              opacity: 0.15, // Reduced for less distraction (was 0.45)
               linewidth: 1
             });
 
@@ -225,33 +225,33 @@ export const NeuralNetworkBackground: React.FC<NeuralNetworkBackgroundProps> = (
         const scale = 1 + Math.sin(time * 3 + node.pulsePhase) * 0.5; // Faster pulse, larger scale
         node.mesh.scale.set(scale, scale, scale);
 
-        // Update opacity based on pulse - more dramatic
+        // Update opacity based on pulse - subtle
         const material = node.mesh.material as THREE.MeshBasicMaterial;
-        material.opacity = 0.45 + Math.sin(time * 3 + node.pulsePhase) * 0.6; // Increased base from 0.3 to 0.45
+        material.opacity = 0.15 + Math.sin(time * 3 + node.pulsePhase) * 0.2; // Reduced for less distraction
       });
 
-      // Animate line flow with visible traveling effect
+      // Animate line flow with subtle traveling effect
       flowOffset += 0.05; // 5x faster flow
       linesRef.current.forEach((line, i) => {
         const material = line.material as THREE.LineBasicMaterial;
         const pulse = Math.sin(flowOffset + i * 0.3); // More variation between lines
-        material.opacity = 0.225 + pulse * 0.4; // Increased base from 0.15 to 0.225
+        material.opacity = 0.08 + pulse * 0.15; // Reduced for less distraction
       });
 
-      // Enhanced hover effect - more dramatic
+      // Enhanced hover effect - subtle
       if (isHoveringRef.current && sphereRef.current) {
         const targetScale = 1.2; // Larger scale increase
         sphereRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.15);
 
         const material = sphereRef.current.material as THREE.MeshPhysicalMaterial;
-        material.opacity = Math.min(material.opacity + 0.02, 0.525); // Increased from 0.35 (50% more)
-        material.emissiveIntensity = 0.5; // Add glow
+        material.opacity = Math.min(material.opacity + 0.02, 0.2); // Reduced for less distraction
+        material.emissiveIntensity = 0.3; // Subtle glow
       } else if (sphereRef.current) {
         const targetScale = 1.0;
         sphereRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.15);
 
         const material = sphereRef.current.material as THREE.MeshPhysicalMaterial;
-        material.opacity = Math.max(material.opacity - 0.02, 0.225); // Increased from 0.15
+        material.opacity = Math.max(material.opacity - 0.02, 0.08); // Reduced for less distraction
         material.emissiveIntensity = 0;
       }
 
