@@ -11,7 +11,6 @@ import { ROICalculator } from './ROICalculator';
 import { LiveStats } from './LiveStats';
 import { TrustBadges } from './TrustBadges';
 import { ExitIntentPopup } from './ExitIntentPopup';
-import { NeuralNetworkBackground } from './NeuralNetworkBackground';
 import { LeadFormData } from '../types';
 
 // Lazy load non-critical sections for better performance
@@ -22,6 +21,9 @@ const CasosUsoSection = lazy(() => import('./sections/CasosUsoSection').then(m =
 const TestimonialsSection = lazy(() => import('./sections/TestimonialsSection').then(m => ({ default: m.TestimonialsSection })));
 const PricingSection = lazy(() => import('./sections/PricingSection').then(m => ({ default: m.PricingSection })));
 const FormularioSection = lazy(() => import('./sections/FormularioSection').then(m => ({ default: m.FormularioSection })));
+
+// Lazy load heavy three.js background component for better initial load
+const NeuralNetworkBackground = lazy(() => import('./NeuralNetworkBackground').then(m => ({ default: m.NeuralNetworkBackground })));
 
 export const MainContainer: React.FC = () => {
   // Handle form submission
@@ -40,8 +42,10 @@ export const MainContainer: React.FC = () => {
 
   return (
     <div className="w-full relative">
-      {/* Fixed Neural Network Background for entire page */}
-      <NeuralNetworkBackground className="fixed" />
+      {/* Fixed Neural Network Background for entire page - Lazy loaded for performance */}
+      <Suspense fallback={<div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />}>
+        <NeuralNetworkBackground className="fixed" />
+      </Suspense>
 
       {/* All content with relative positioning to appear above background */}
       <div className="relative z-10">
