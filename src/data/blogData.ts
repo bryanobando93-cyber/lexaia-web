@@ -187,17 +187,20 @@ El proceso ahora:
 
 Después de 4 meses:
 
+
 ### Capacidad
 
 - **300 contratos/mes** procesados (vs 45 antes)
 - **80% reducción** en tiempo de análisis
 - **ZERO errores** en extracción de cláusulas críticas
 
+
 ### Financiero
 
 - **Ingresos**: $24,000 USD/mes (vs $4,500 antes)
 - **Costo de IA**: $600 USD/mes
 - **ROI**: 3,250% en 4 meses
+
 
 ### Equipo
 
@@ -221,17 +224,20 @@ Roberto fue directo: "La IA va a reemplazar las 3.5 horas de lectura mecánica q
 
 ## Casos de Uso Reales
 
+
 ### Caso 1: Contrato Multinacional de 127 Páginas
 
 - **Antes**: 12 horas de trabajo
 - **Ahora**: 2 horas (IA analiza + abogado valida)
 - **Hallazgo clave**: IA detectó cláusula de jurisdicción conflictiva en página 89 que hubiera pasado desapercibida
 
+
 ### Caso 2: Review de 40 Contratos Similares
 
 - **Antes**: 160 horas (1 mes de trabajo)
 - **Ahora**: 18 horas (IA encuentra patrones y anomalías)
 - **Resultado**: Identificaron cláusula problemática en 38 de 40 contratos
+
 
 ### Caso 3: Due Diligence de Adquisición
 
@@ -255,13 +261,16 @@ El sistema funciona así:
 
 ## Lecciones Aprendidas
 
+
 ### 1. La IA No Es Perfecta
 
 El sistema tiene 95% de precisión. Por eso **siempre** un abogado revisa el output final.
 
+
 ### 2. El Contexto Importa
 
 Entrenamos el sistema con contratos específicos de México. Jurisdicción, terminología legal, regulaciones locales.
+
 
 ### 3. Los Abogados Son Más Valiosos, No Menos
 
@@ -288,10 +297,6 @@ Roberto lo resume perfecto: "Estudié 5 años de derecho para analizar estrategi
 **¿Tu despacho está limitado por trabajo mecánico?** En **lexaia** implementamos IA para procesamiento documental legal, contable, y administrativo.
 
 [Agenda una consulta gratuita](/formulario) y descubre cómo multiplicar tu capacidad sin contratar más personal.
-
----
-
-*¿Trabajas en legal, contabilidad o áreas con mucho procesamiento documental? Cuéntanos tu desafío en los comentarios.*
     `
   },
   {
