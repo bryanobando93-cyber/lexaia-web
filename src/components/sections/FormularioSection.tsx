@@ -1,37 +1,128 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { LeadFormMultiStep } from '../LeadFormMultiStep';
 import { LeadFormData } from '../../types';
-import { Mail, Phone, MessageSquare } from 'lucide-react';
+import { Mail, Phone, MessageSquare, ChevronDown } from 'lucide-react';
 
 interface FormularioSectionProps {
   onSubmit: (data: LeadFormData) => Promise<void>;
 }
 
 export const FormularioSection: React.FC<FormularioSectionProps> = ({ onSubmit }) => {
+  const [showForm, setShowForm] = useState(false);
+  const [hasScrolledEnough, setHasScrolledEnough] = useState(false);
+
+  useEffect(() => {
+    // Check if user has previously seen/submitted the form
+    const hasSeenForm = localStorage.getItem('lexaia_has_seen_form');
+    if (hasSeenForm) {
+      setShowForm(true);
+      setHasScrolledEnough(true);
+      return;
+    }
+
+    const handleScroll = () => {
+      // Calculate scroll percentage
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+
+      // Show form hint after 30% scroll or after 20 seconds on page
+      if (scrollPercent > 30 && !hasScrolledEnough) {
+        setHasScrolledEnough(true);
+      }
+    };
+
+    // Auto-reveal hint after 20 seconds
+    const timer = setTimeout(() => {
+      setHasScrolledEnough(true);
+    }, 20000);
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
+  }, [hasScrolledEnough]);
+
+  const handleShowForm = () => {
+    setShowForm(true);
+    localStorage.setItem('lexaia_has_seen_form', 'true');
+  };
+
   return (
     <section id="formulario" className="min-h-screen flex items-center justify-center relative overflow-hidden py-20 px-6">
       {/* Neural network background visible */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900/35 via-slate-800/25 to-slate-900/35" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
-            Comienza Tu{' '}
-            <span className="text-primary">Transformación</span>
-          </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Completa el formulario y nuestro equipo de expertos se pondrá en contacto contigo
-            para diseñar una solución personalizada de IA para tu empresa
-          </p>
-        </motion.div>
+        {!showForm ? (
+          // Invitation message when form is hidden
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+              ¿Listo para{' '}
+              <span className="text-primary">Transformar</span>{' '}
+              tu Empresa?
+            </h2>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-8">
+              Cuando estés listo, nos encantaría conocer más sobre tu proyecto y cómo podemos ayudarte
+            </p>
+
+            {hasScrolledEnough && (
+              <motion.button
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                onClick={handleShowForm}
+                className="group inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-slate-900 px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105"
+              >
+                Explorar Opciones
+                <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+              </motion.button>
+            )}
+
+            {/* Contact alternatives */}
+            <div className="mt-12 max-w-2xl mx-auto">
+              <p className="text-slate-400 mb-6">O contáctanos directamente:</p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-lg p-4">
+                  <Mail className="w-6 h-6 text-primary mx-auto mb-2" />
+                  <p className="text-sm text-slate-300">contacto@lexaia.com</p>
+                </div>
+                <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-lg p-4">
+                  <Phone className="w-6 h-6 text-primary mx-auto mb-2" />
+                  <p className="text-sm text-slate-300">+57 (316) 537-5761</p>
+                </div>
+                <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-lg p-4">
+                  <MessageSquare className="w-6 h-6 text-primary mx-auto mb-2" />
+                  <p className="text-sm text-slate-300">WhatsApp</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        ) : (
+          // Full form view
+          <>
+            {/* Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+                Comienza Tu{' '}
+                <span className="text-primary">Transformación</span>
+              </h2>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                Completa el formulario y nos pondremos en contacto contigo
+                para diseñar una solución personalizada de IA para tu empresa
+              </p>
+            </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Contact Information */}
@@ -124,13 +215,14 @@ export const FormularioSection: React.FC<FormularioSectionProps> = ({ onSubmit }
           {/* Form */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <LeadFormMultiStep onSubmit={onSubmit} />
           </motion.div>
         </div>
+          </>
+        )}
       </div>
     </section>
   );
