@@ -586,21 +586,20 @@ Jorge ahora empieza su día así:
 **7:00 AM**: Recibe en WhatsApp resumen de ayer + recomendaciones del día
 
 **Ejemplo de mensaje de IA**:
-```
-☀️ Buenos días Jorge
 
-📊 Resumen de ayer:
-- Ventas: $124,500 (+8% vs promedio)
-- Producto estrella: Cemento (180 bultos)
-- Alerta: Varilla 3/8 se agotará hoy
+    ☀️ Buenos días Jorge
 
-💡 Recomendaciones para hoy:
-1. Pedir varilla urgente (proveedor tiene stock)
-2. Promocionar pintura vinílica (inventario alto)
-3. Cliente "Constructora Gómez" viene cada 15 días. Hoy es día 15. Prepara cotización.
+    📊 Resumen de ayer:
+    - Ventas: $124,500 (+8% vs promedio)
+    - Producto estrella: Cemento (180 bultos)
+    - Alerta: Varilla 3/8 se agotará hoy
 
-¿Necesitas más detalles?
-```
+    💡 Recomendaciones para hoy:
+    1. Pedir varilla urgente (proveedor tiene stock)
+    2. Promocionar pintura vinílica (inventario alto)
+    3. Cliente "Constructora Gómez" viene cada 15 días. Hoy es día 15. Prepara cotización.
+
+    ¿Necesitas más detalles?
 
 **Jorge responde**: "Sí, ¿cuánta varilla pido?"
 
