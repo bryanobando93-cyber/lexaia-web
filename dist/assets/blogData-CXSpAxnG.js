@@ -1,4 +1,4 @@
-import{c as e}from"./index-J3kIyIhg.js";/**
+import{c as e}from"./index-BLIjFrEe.js";/**
  * @license lucide-react v0.364.0 - ISC
  *
  * This source code is licensed under the ISC license.
@@ -24,13 +24,13 @@ Con 8 clientes activos, ya estaba al límite. No por las sesiones de coaching (e
 
 ## La Trampa del Coach Exitoso
 
-Laura cobraba bien. $8,000 MXN por mes por cliente. Con 8 clientes, facturaba $64,000 mensuales.
+Laura cobraba bien. $400 USD por mes por cliente. Con 8 clientes, facturaba $3,200 mensuales.
 
 Pero había rechazado **23 prospectos** en los últimos 3 meses. Simplemente no tenía tiempo para más clientes.
 
 "¿Has pensado en contratar una asistente?" le pregunté.
 
-"Sí, pero los números no cuadran. Una asistente me costaría $15,000-20,000 al mes. Y necesitaría capacitarla, supervisarla, y aún así no trabajaría 24/7."
+"Sí, pero los números no cuadran. Una asistente me costaría $750-1,000 USD al mes. Y necesitaría capacitarla, supervisarla, y aún así no trabajaría 24/7."
 
 
 ## El Asistente que Nunca Duerme
@@ -48,17 +48,17 @@ No un chatbot básico. Un sistema completo que:
 
 "¿Cuánto cuesta?" preguntó Laura, escéptica.
 
-"$6,500 MXN/mes. Y lo implementamos en 2 semanas."
+"$325 USD/mes. Y lo implementamos en 2 semanas."
 
 
 ## Los Resultados en 6 Meses
 
 Laura ahora tiene **45 clientes activos**.
 
-- **Facturación**: $360,000 MXN/mes (vs $64,000 antes)
+- **Facturación**: $18,000 USD/mes (vs $3,200 antes)
 - **Horas administrativas**: 2 horas/semana (vs 25 antes)
 - **Tiempo de coaching**: 40 horas/semana (vs 12 antes)
-- **Costo del asistente IA**: $6,500/mes
+- **Costo del asistente IA**: $325/mes
 - **ROI**: 4,400% en 6 meses
 
 "El asistente hace todo lo que yo odiaba hacer," dice Laura. "Yo hago lo que amo: transformar negocios."
@@ -161,8 +161,8 @@ Después de 4 meses:
 
 ### Financiero
 
-- **Ingresos**: $480,000 MXN/mes (vs $90,000 antes)
-- **Costo de IA**: $12,000 MXN/mes
+- **Ingresos**: $24,000 USD/mes (vs $4,500 antes)
+- **Costo de IA**: $600 USD/mes
 - **ROI**: 3,250% en 4 meses
 
 ### Equipo
@@ -238,7 +238,7 @@ Ahora se enfocan en estrategia, negociación, y asesoría de alto valor. No en l
 
 Con la nueva capacidad, Roberto lanzó:
 
-- **Suscripción mensual**: $15,000/mes para PYMEs (5 contratos/mes)
+- **Suscripción mensual**: $750 USD/mes para PYMEs (5 contratos/mes)
 - **Due diligence express**: Para fusiones y adquisiciones
 - **Auditoría de contratos**: Revisan todos los contratos de una empresa
 
@@ -265,7 +265,7 @@ Sofía es dueña de "La Cocina de Sofía", restaurante mexicano en Guadalajara. 
 
 Pero en 2024, eso no basta. "Si no estás en redes sociales, no existes," le decían todos.
 
-El problema: Sofía no tenía tiempo para redes sociales. Y contratar una agencia costaba $18,000 MXN/mes (más de lo que ganaba algunos meses).
+El problema: Sofía no tenía tiempo para redes sociales. Y contratar una agencia costaba $900 USD/mes (más de lo que ganaba algunos meses).
 
 
 ## La Realidad del Restaurantero
@@ -279,7 +279,7 @@ El día de Sofía:
 
 ¿Cuándo iba a crear contenido para Instagram, Facebook, y TikTok?
 
-Las agencias le pedían $18,000-25,000 MXN/mes. Imposible.
+Las agencias le pedían $900-1,250 USD/mes. Imposible.
 
 
 ## La Propuesta Loca
@@ -331,11 +331,11 @@ El proceso:
 - **Reservaciones online**: +280%
 - **Mesas llenas**: Lunes a jueves (antes medio vacío)
 - **Ticket promedio**: +15% (clientes vienen por platillos que ven en redes)
-- **Ingresos adicionales**: $95,000 MXN/mes
+- **Ingresos adicionales**: $4,750 USD/mes
 
 ### Costo
 
-- **IA + automatización**: $4,800 MXN/mes
+- **IA + automatización**: $240 USD/mes
 - **ROI**: 1,900% en 5 meses
 
 
@@ -410,7 +410,7 @@ Con las redes funcionando, Sofía:
 - Creó **kits de comida para preparar en casa**
 - Ofrece **clases de cocina** los sábados (vendidas via Instagram)
 
-Nuevas líneas de ingreso: $45,000 MXN/mes adicionales.
+Nuevas líneas de ingreso: $2,250 USD/mes adicionales.
 
 
 ## Cómo Empezar
@@ -467,7 +467,7 @@ Eso es usar la tecnología correctamente.
 
 "Si veo que se acaba el cemento, pido más cemento. Si un cliente pregunta por algo que no tengo, tal vez lo añado al inventario la próxima semana. **Todo es feeling**."
 
-El problema: El "instinto" estaba costándole $180,000 MXN al mes en inventario muerto y ventas perdidas.
+El problema: El "instinto" estaba costándole $9,000 USD al mes en inventario muerto y ventas perdidas.
 
 
 ## El Caos de Datos
@@ -483,7 +483,7 @@ Ferretería Hernández procesa **15,000 transacciones al mes**. Cada una genera 
 
 Toda esa información existía en su sistema de punto de venta. Pero **nadie la analizaba**.
 
-"No tenemos tiempo," decía Jorge. "Y contratar un analista de datos cuesta $35,000-45,000 al mes."
+"No tenemos tiempo," decía Jorge. "Y contratar un analista de datos cuesta $1,750-2,250 USD al mes."
 
 
 ## Las Decisiones Costosas
@@ -492,7 +492,7 @@ Sin análisis, Jorge tomaba decisiones caras:
 
 ### Error 1: Inventario Muerto
 
-- **$220,000 en productos** que llevaban +6 meses sin venderse
+- **$11,000 USD en productos** que llevaban +6 meses sin venderse
 - Ocupaban espacio valioso
 - Inmovilizaban capital
 
@@ -542,9 +542,9 @@ Jorge no necesita saber de "machine learning" o "algoritmos". Solo pregunta en W
 
 ### Inventario Optimizado
 
-- **Inventario muerto**: De $220,000 a $35,000
+- **Inventario muerto**: De $11,000 a $1,750 USD
 - **Rotación de inventario**: +65%
-- **Capital liberado**: $185,000 para reinvertir
+- **Capital liberado**: $9,250 USD para reinvertir
 
 ### Ventas
 
@@ -555,11 +555,11 @@ Jorge no necesita saber de "machine learning" o "algoritmos". Solo pregunta en W
 ### Rentabilidad
 
 - **Margen bruto**: De 22% a 31%
-- **Utilidad neta mensual**: +$156,000 MXN
+- **Utilidad neta mensual**: +$7,800 USD
 
 ### Costo
 
-- **IA + sistema**: $8,500 MXN/mes
+- **IA + sistema**: $425 USD/mes
 - **ROI**: 1,735% en 6 meses
 
 
@@ -571,7 +571,7 @@ La IA descubrió patrones que Jorge nunca vio:
 
 - **Insight**: Los viernes a las 5-7 PM vienen clientes con proyectos de fin de semana
 - **Acción**: Personal extra esas horas + promociones de "kits de proyecto"
-- **Resultado**: +$45,000 MXN en ventas de viernes
+- **Resultado**: +$2,250 USD en ventas de viernes
 
 ### Patrón 2: Combos Invisibles
 
@@ -583,7 +583,7 @@ La IA descubrió patrones que Jorge nunca vio:
 
 - **Insight**: 340 clientes frecuentes no han comprado en 60+ días
 - **Acción**: Campaña de reactivación vía WhatsApp con cupón personalizado
-- **Resultado**: 118 clientes reactivados, $87,000 en ventas recuperadas
+- **Resultado**: 118 clientes reactivados, $4,350 USD en ventas recuperadas
 
 ### Patrón 4: Predicción de Demanda
 
@@ -713,14 +713,14 @@ Andrea: "Mediana sería perfecto. ¿Quieres que te arme un outfit completo?"
 
 **Hermoso**. **Personal**. **No escalable**.
 
-Con 8-12 conversaciones diarias, Andrea facturaba $85,000 MXN/mes. Pero rechazaba 40+ consultas por día porque **simplemente no daba abasto**.
+Con 8-12 conversaciones diarias, Andrea facturaba $4,250 USD/mes. Pero rechazaba 40+ consultas por día porque **simplemente no daba abasto**.
 
 
 ## El Costo de la Atención Personal
 
 Andrea calculó que perdía:
 
-- **$240,000 MXN/mes** en ventas no atendidas
+- **$12,000 USD/mes** en ventas no atendidas
 - **60% de clientes** abandonaban por respuestas lentas (ella dormía, salía, tenía vida)
 - **Zero ventas** de 11 PM a 8 AM (30% de su tráfico era nocturno)
 
@@ -766,7 +766,7 @@ El chatbot tiene acceso a:
 - **Conversión**: De 12% a 28%
 - **Ticket promedio**: +35% (chatbot sugiere complementos)
 - **Ventas totales**: +127%
-- **Facturación**: $193,000 MXN/mes (vs $85,000 antes)
+- **Facturación**: $9,650 USD/mes (vs $4,250 antes)
 
 ### Operación
 
@@ -798,10 +798,10 @@ El chatbot tiene acceso a:
 
 **Chatbot**: Perfecto, tengo 2 opciones increíbles:
 
-1. **Vestido Valentina** (vinotinto): Corte sirena, escote V, $1,890
+1. **Vestido Valentina** (vinotinto): Corte sirena, escote V, $95 USD
 [Foto del producto]
 
-2. **Vestido Luna** (negro): Corte A, mangas francesas, $1,650
+2. **Vestido Luna** (negro): Corte A, mangas francesas, $83 USD
 [Foto del producto]
 
 Ambos son de nuestra colección premium, tela importada que no se arruga. ¿Cuál te llama más?
@@ -816,16 +816,16 @@ Ambos son de nuestra colección premium, tela importada que no se arruga. ¿Cuá
 
 **Chatbot**: ¡Aquí va tu outfit completo!
 
-👗 Vestido Valentina - $1,890
-💎 Aretes Crystal Gold - $450
-👠 Zapatillas Elegance (nude) - $890
-👜 Clutch Midnight - $550
+👗 Vestido Valentina - $95 USD
+💎 Aretes Crystal Gold - $23 USD
+👠 Zapatillas Elegance (nude) - $45 USD
+👜 Clutch Midnight - $28 USD
 
-**Total**: $3,780
+**Total**: $191 USD
 
-**Oferta especial**: Si llevas el outfit completo, 10% de descuento = **$3,402**
+**Oferta especial**: Si llevas el outfit completo, 10% de descuento = **$172 USD**
 
-Ahorras $378 y sales lista para brillar. ¿Te lo envuelvo? 🎁
+Ahorras $19 y sales lista para brillar. ¿Te lo envuelvo? 🎁
 
 **Cliente**: Perfecto! Cómo pago?
 
@@ -837,7 +837,7 @@ Tu pedido llega en 5-7 días a [ciudad]. ¿Confirmo tu dirección? [Dirección g
 
 ---
 
-**Venta cerrada**: $3,402 MXN
+**Venta cerrada**: $172 USD
 
 **Hora**: 2:47 AM
 
@@ -864,19 +864,19 @@ Te armo 3 outfits que son profesionales pero con personalidad:
 
 **Outfit 1: La Ejecutiva**
 
-- Blusa Sofía (blanca, manga larga) - $890
-- Pantalón Palazzo Negro - $1,200
-- Blazer Olivia - $1,650
+- Blusa Sofía (blanca, manga larga) - $45 USD
+- Pantalón Palazzo Negro - $60 USD
+- Blazer Olivia - $83 USD
 
 **Outfit 2: Smart Casual**
 
-- Blusa Estampada Geométrica - $950
-- Pantalón Chupin Camel - $1,100
+- Blusa Estampada Geométrica - $48 USD
+- Pantalón Chupin Camel - $55 USD
 
 **Outfit 3: Minimal Chic**
 
-- Blusa Satinada Verde - $980
-- Pantalón Wide Leg Beige - $1,280
+- Blusa Satinada Verde - $49 USD
+- Pantalón Wide Leg Beige - $64 USD
 
 [Fotos de cada outfit completo]
 
@@ -890,7 +890,7 @@ Te armo 3 outfits que son profesionales pero con personalidad:
 
 **Cliente**: Dale! Mándamelo
 
-**Venta cerrada**: $2,050 MXN
+**Venta cerrada**: $103 USD
 
 
 ## Lo Que El Chatbot NO Hace
@@ -932,17 +932,17 @@ Con el chatbot funcionando, Andrea:
 - Creó **club VIP** con descuentos exclusivos
 - Implementó **programa de referidos** automatizado
 
-Nuevos ingresos: $78,000 MXN/mes adicionales.
+Nuevos ingresos: $3,900 USD/mes adicionales.
 
 ## ROI Real
 
-**Inversión inicial**: $32,000 MXN (desarrollo + integración)
-**Costo mensual**: $6,800 MXN (mantenimiento + API)
+**Inversión inicial**: $1,600 USD (desarrollo + integración)
+**Costo mensual**: $340 USD (mantenimiento + API)
 
 **Retorno en 90 días**:
-- Ventas adicionales: $108,000 MXN/mes
-- Menos costo del chatbot: -$6,800
-- **Utilidad neta adicional**: $101,200 MXN/mes
+- Ventas adicionales: $5,400 USD/mes
+- Menos costo del chatbot: -$340 USD
+- **Utilidad neta adicional**: $5,060 USD/mes
 
 **ROI**: 3,162% en 90 días
 
@@ -1053,7 +1053,7 @@ María se quedó paralizada. **Esa era su voz**. Pero ella no estaba hablando.
 
 "Quisiera saber el costo de una limpieza dental," dijo el consultor en la llamada de prueba.
 
-"Con gusto. Una limpieza dental tiene un costo de $850 pesos. ¿Le gustaría agendar una cita?" respondió la voz.
+"Con gusto. Una limpieza dental tiene un costo de $43 dólares. ¿Le gustaría agendar una cita?" respondió la voz.
 
 "¿Aceptan seguro dental?"
 
@@ -1198,8 +1198,8 @@ Cada llamada queda registrada y transcrita. María puede revisar cualquier conve
 
 ### 💰 Impacto en el Negocio
 - **32% más citas agendadas** (porque la IA contesta inmediatamente, sin esperas)
-- **$85,000 MXN/mes en ingresos adicionales** (más pacientes + menos cancelaciones)
-- **Costo de la IA**: $4,500 MXN/mes (vs $18,000+ MXN de contratar otra recepcionista)
+- **$4,250 USD/mes en ingresos adicionales** (más pacientes + menos cancelaciones)
+- **Costo de la IA**: $225 USD/mes (vs $900+ USD de contratar otra recepcionista)
 
 ### 😊 Impacto en María
 - **Nivel de estrés**: de 8/10 a 3/10
@@ -1264,7 +1264,7 @@ María: "Nunca nos han acusado de 'engañar'. Si alguien pregunta directamente '
 María: "Transfiere a mí inmediatamente. De hecho, está programada para ser conservadora - ante la duda, transfiere a humano."
 
 **P: ¿Cuánto cuesta implementar esto?**
-Dr. Ramírez: "Invertimos $28,000 MXN en implementación inicial (lexaia) + $4,500 MXN/mes. Lo recuperamos en el primer mes con las citas adicionales."
+Dr. Ramírez: "Invertimos $1,400 USD en implementación inicial (lexaia) + $225 USD/mes. Lo recuperamos en el primer mes con las citas adicionales."
 
 **P: ¿María tiene miedo de que eventualmente la reemplacen?**
 María: "Todo lo contrario. Ahora soy **más** valiosa porque mi rol es estratégico, no operativo. Cualquiera puede contestar el teléfono. No cualquiera puede diseñar experiencias memorables para pacientes."
@@ -1387,7 +1387,7 @@ El resultado: **28% de los leads nunca recibían respuesta**, el equipo estaba a
 - ⏱️ **120 horas/mes** perdidas en tareas administrativas repetitivas
 - 📉 **28% de leads sin respuesta** (dinero dejado sobre la mesa)
 - 😰 **2 empleados amenazando con renunciar** por sobrecarga
-- 💸 **$85,000 MXN/mes** gastados en herramientas que no hablaban entre sí
+- 💸 **$4,250 USD/mes** gastados en herramientas que no hablaban entre sí
 - ⚠️ **Errores en facturación** por datos desactualizados
 
 "Sabía que necesitábamos algo, pero contratar más gente solo iba a multiplicar el caos," nos contó Carlos.
@@ -1473,8 +1473,8 @@ Después de 3 meses con las automatizaciones funcionando:
 
 ### 💰 Impacto Financiero
 - **40% más conversiones** de leads a clientes (por seguimiento más rápido)
-- **$72,000 MXN/mes en ahorro** de herramientas redundantes eliminadas
-- **$180,000 MXN/mes en ingresos adicionales** por poder manejar más clientes
+- **$3,600 USD/mes en ahorro** de herramientas redundantes eliminadas
+- **$9,000 USD/mes en ingresos adicionales** por poder manejar más clientes
 
 ### 😊 Satisfacción
 - **NPS de clientes subió de 7.2 a 9.1** (reportes puntuales, mejor comunicación)
@@ -1538,14 +1538,14 @@ El denominador común: **tareas repetitivas que consumen tiempo valioso**.
 
 La agencia de Carlos invirtió:
 - **2 semanas de implementación** inicial
-- **$24,000 MXN** en consultoría de implementación (lexaia)
-- **$800 MXN/mes** en servidor para alojar n8n
+- **$1,200 USD** en consultoría de implementación (lexaia)
+- **$40 USD/mes** en servidor para alojar n8n
 
 **ROI**: Recuperaron la inversión en **menos de 2 meses**.
 
 Compare eso con:
-- Contratar 1.5 empleados adicionales: **$45,000 MXN/mes** recurrente
-- Zapier Enterprise: **$750+ USD/mes** ($15,000+ MXN)
+- Contratar 1.5 empleados adicionales: **$2,250 USD/mes** recurrente
+- Zapier Enterprise: **$750+ USD/mes**
 - Seguir perdiendo 28% de leads: **costo de oportunidad incalculable**
 
 ## Cómo Empezar en Tu Negocio
