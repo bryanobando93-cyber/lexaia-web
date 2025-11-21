@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { AulaVirtualSection } from '../components/sections/AulaVirtualSection';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
-import { NeuralNetworkBackground } from '../components/NeuralNetworkBackground';
+
+// Lazy load heavy three.js background
+const NeuralNetworkBackground = lazy(() => import('../components/NeuralNetworkBackground').then(m => ({ default: m.NeuralNetworkBackground })));
 
 export const AulaVirtualPage: React.FC = () => {
   return (
     <div className="w-full relative">
-      {/* Fixed Neural Network Background */}
-      <NeuralNetworkBackground className="fixed" />
+      {/* Fixed Neural Network Background - Lazy loaded for performance */}
+      <Suspense fallback={<div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />}>
+        <NeuralNetworkBackground className="fixed" />
+      </Suspense>
 
       {/* Content */}
       <div className="relative z-10">
