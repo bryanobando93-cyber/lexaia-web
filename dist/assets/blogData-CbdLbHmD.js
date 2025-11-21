@@ -1,30 +1,9 @@
-export interface BlogPost {
-  id: string;
-  slug: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  author: string;
-  date: string;
-  readTime: string;
-  category: string;
-  tags: string[];
-  image: string;
-}
-
-export const blogPosts: BlogPost[] = [
-  {
-    id: '8',
-    slug: 'laura-coach-multiplico-clientes-asistente-ia',
-    title: 'Cómo Laura Pasó de 8 a 45 Clientes Sin Contratar Asistente',
-    excerpt: 'La historia de una coach que multiplicó sus clientes 5x usando un asistente virtual de IA que maneja agendamiento, seguimiento y contenido automáticamente.',
-    author: 'lexaia Team',
-    date: '2025-08-20',
-    readTime: '8 min',
-    category: 'IA',
-    tags: ['Asistentes Virtuales', 'IA', 'Consultores', 'Productividad'],
-    image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&h=400&fit=crop',
-    content: `
+import{c as e}from"./index-_Co-mtYy.js";/**
+ * @license lucide-react v0.364.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const o=e("Tag",[["path",{d:"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z",key:"vktsd0"}],["circle",{cx:"7.5",cy:"7.5",r:".5",fill:"currentColor",key:"kqv944"}]]),s=[{id:"8",slug:"laura-coach-multiplico-clientes-asistente-ia",title:"Cómo Laura Pasó de 8 a 45 Clientes Sin Contratar Asistente",excerpt:"La historia de una coach que multiplicó sus clientes 5x usando un asistente virtual de IA que maneja agendamiento, seguimiento y contenido automáticamente.",author:"lexaia Team",date:"2025-08-20",readTime:"8 min",category:"IA",tags:["Asistentes Virtuales","IA","Consultores","Productividad"],image:"https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&h=400&fit=crop",content:`
 # Cómo Laura Pasó de 8 a 45 Clientes Sin Contratar Asistente
 
 Laura es coach de negocios. Buena. Muy buena. Sus clientes logran resultados increíbles: duplican ingresos, lanzan productos nuevos, contratan equipos.
@@ -114,20 +93,7 @@ Eso es lo que la tecnología debería hacer: liberarte para hacer tu mejor traba
 ---
 
 *¿Eres consultor o coach limitado por tareas administrativas? Comparte tu historia en los comentarios.*
-    `
-  },
-  {
-    id: '7',
-    slug: 'despacho-legal-ia-procesa-documentos',
-    title: 'El Despacho Legal Que Procesa 300 Contratos al Mes Con Solo 3 Abogados',
-    excerpt: 'Cómo un pequeño despacho legal usa IA para revisar contratos, extraer cláusulas críticas y reducir 80% el tiempo de análisis documental.',
-    author: 'lexaia Team',
-    date: '2025-07-15',
-    readTime: '9 min',
-    category: 'IA',
-    tags: ['IA Documental', 'Legal Tech', 'Automatización', 'LLM'],
-    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=400&fit=crop',
-    content: `
+    `},{id:"7",slug:"despacho-legal-ia-procesa-documentos",title:"El Despacho Legal Que Procesa 300 Contratos al Mes Con Solo 3 Abogados",excerpt:"Cómo un pequeño despacho legal usa IA para revisar contratos, extraer cláusulas críticas y reducir 80% el tiempo de análisis documental.",author:"lexaia Team",date:"2025-07-15",readTime:"9 min",category:"IA",tags:["IA Documental","Legal Tech","Automatización","LLM"],image:"https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=400&fit=crop",content:`
 # El Despacho Legal Que Procesa 300 Contratos al Mes Con Solo 3 Abogados
 
 Lic. Roberto Mendoza fundó su despacho hace 8 años. Especialidad: revisión de contratos comerciales para PYMEs.
@@ -264,20 +230,7 @@ Roberto lo resume perfecto: "Estudié 5 años de derecho para analizar estrategi
 ---
 
 *¿Trabajas en legal, contabilidad o áreas con mucho procesamiento documental? Cuéntanos tu desafío en los comentarios.*
-    `
-  },
-  {
-    id: '6',
-    slug: 'restaurante-redes-sociales-automatizadas',
-    title: 'El Restaurante Que Publica 120 Posts al Mes Sin Community Manager',
-    excerpt: 'Descubre cómo un restaurante familiar usa IA para automatizar redes sociales, aumentar engagement 300% y llenar mesas sin contratar agencia de marketing.',
-    author: 'lexaia Team',
-    date: '2025-06-10',
-    readTime: '7 min',
-    category: 'Automatización',
-    tags: ['Redes Sociales', 'IA Generativa', 'Restaurantes', 'Marketing'],
-    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=400&fit=crop',
-    content: `
+    `},{id:"6",slug:"restaurante-redes-sociales-automatizadas",title:"El Restaurante Que Publica 120 Posts al Mes Sin Community Manager",excerpt:"Descubre cómo un restaurante familiar usa IA para automatizar redes sociales, aumentar engagement 300% y llenar mesas sin contratar agencia de marketing.",author:"lexaia Team",date:"2025-06-10",readTime:"7 min",category:"Automatización",tags:["Redes Sociales","IA Generativa","Restaurantes","Marketing"],image:"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=400&fit=crop",content:`
 # El Restaurante Que Publica 120 Posts al Mes Sin Community Manager
 
 Sofía es dueña de "La Cocina de Sofía", restaurante mexicano en Guadalajara. Comida excelente, ambiente familiar, precios justos.
@@ -453,20 +406,7 @@ Eso es usar la tecnología correctamente.
 ---
 
 *¿Tienes un restaurante luchando con redes sociales? Comparte tu experiencia en los comentarios.*
-    `
-  },
-  {
-    id: '5',
-    slug: 'pyme-toma-decisiones-ia-analisis-datos',
-    title: 'La PYME Que Dejó de "Vender a Ciegas" Gracias a IA',
-    excerpt: 'Cómo una ferretería familiar usa IA para analizar 15,000 transacciones mensuales, predecir demanda y aumentar rentabilidad 40% sin contratar analista.',
-    author: 'lexaia Team',
-    date: '2025-05-22',
-    readTime: '8 min',
-    category: 'IA',
-    tags: ['Business Intelligence', 'IA', 'Análisis de Datos', 'PYME'],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
-    content: `
+    `},{id:"5",slug:"pyme-toma-decisiones-ia-analisis-datos",title:'La PYME Que Dejó de "Vender a Ciegas" Gracias a IA',excerpt:"Cómo una ferretería familiar usa IA para analizar 15,000 transacciones mensuales, predecir demanda y aumentar rentabilidad 40% sin contratar analista.",author:"lexaia Team",date:"2025-05-22",readTime:"8 min",category:"IA",tags:["Business Intelligence","IA","Análisis de Datos","PYME"],image:"https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",content:`
 # La PYME Que Dejó de "Vender a Ciegas" Gracias a IA
 
 "Vendemos por instinto," me dijo Jorge, dueño de Ferretería Hernández, negocio familiar con 3 sucursales en Querétaro.
@@ -679,20 +619,7 @@ Esa es la diferencia entre competir y dominar.
 ---
 
 *¿Tienes una PYME tomando decisiones "por instinto"? Comparte tu experiencia en los comentarios.*
-    `
-  },
-  {
-    id: '4',
-    slug: 'tienda-online-chatbot-ventas',
-    title: 'Cómo un Chatbot Aumentó 127% las Ventas de Esta Tienda Online',
-    excerpt: 'La historia de una tienda de ropa que implementó un chatbot de IA que entiende estilo, recomienda outfits y cierra ventas mientras el dueño duerme.',
-    author: 'lexaia Team',
-    date: '2025-04-18',
-    readTime: '8 min',
-    category: 'IA',
-    tags: ['E-commerce', 'Chatbots', 'IA Conversacional', 'Ventas'],
-    image: 'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=800&h=400&fit=crop',
-    content: `
+    `},{id:"4",slug:"tienda-online-chatbot-ventas",title:"Cómo un Chatbot Aumentó 127% las Ventas de Esta Tienda Online",excerpt:"La historia de una tienda de ropa que implementó un chatbot de IA que entiende estilo, recomienda outfits y cierra ventas mientras el dueño duerme.",author:"lexaia Team",date:"2025-04-18",readTime:"8 min",category:"IA",tags:["E-commerce","Chatbots","IA Conversacional","Ventas"],image:"https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=800&h=400&fit=crop",content:`
 # Cómo un Chatbot Aumentó 127% las Ventas de Esta Tienda Online
 
 Andrea vende ropa por Instagram. Marca propia, diseños únicos, calidad premium.
@@ -936,20 +863,7 @@ Ella ahora hace lo que realmente ama: diseñar, crear, innovar.
 ---
 
 *¿Vendes por redes sociales y te ahogas en mensajes? Comparte tu experiencia en los comentarios.*
-    `
-  },
-  {
-    id: '3',
-    slug: 'maria-recepcionista-ia-voz',
-    title: 'María Ya No Contesta 200 Llamadas al Día: Su Historia con una Recepcionista de IA',
-    excerpt: 'Descubre cómo una clínica dental transformó el rol de su recepcionista con IA de voz, liberándola de tareas repetitivas para enfocarse en lo que realmente importa: cuidar a los pacientes.',
-    author: 'lexaia Team',
-    date: '2025-03-12',
-    readTime: '10 min',
-    category: 'IA',
-    tags: ['IA de Voz', 'ElevenLabs', 'Vapi', 'Transformación Digital'],
-    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=400&fit=crop',
-    content: `
+    `},{id:"3",slug:"maria-recepcionista-ia-voz",title:"María Ya No Contesta 200 Llamadas al Día: Su Historia con una Recepcionista de IA",excerpt:"Descubre cómo una clínica dental transformó el rol de su recepcionista con IA de voz, liberándola de tareas repetitivas para enfocarse en lo que realmente importa: cuidar a los pacientes.",author:"lexaia Team",date:"2025-03-12",readTime:"10 min",category:"IA",tags:["IA de Voz","ElevenLabs","Vapi","Transformación Digital"],image:"https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=400&fit=crop",content:`
 # María Ya No Contesta 200 Llamadas al Día: Su Historia con una Recepcionista de IA
 
 María llega a la Clínica Dental Sonrisa a las 7:45 AM. Antes de quitarse el abrigo, el teléfono ya está sonando.
@@ -1325,20 +1239,7 @@ La IA no es el enemigo. **La IA es la herramienta que te libera**.
 ---
 
 *¿Tienes un equipo atrapado en tareas repetitivas? ¿Has experimentado transformación de roles con IA? Comparte tu historia en los comentarios.*
-    `
-  },
-  {
-    id: '2',
-    slug: 'como-agencia-ahorro-120-horas-con-n8n',
-    title: 'Cómo una Agencia de Marketing Ahorró 120 Horas al Mes Automatizando con n8n',
-    excerpt: 'Descubre cómo una agencia pasó de perder clientes por respuestas lentas a cerrar 40% más ventas gracias a la automatización inteligente con n8n.',
-    author: 'lexaia Team',
-    date: '2025-02-18',
-    readTime: '9 min',
-    category: 'Automatización',
-    tags: ['n8n', 'Automatización', 'Caso de Estudio', 'ROI'],
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
-    content: `
+    `},{id:"2",slug:"como-agencia-ahorro-120-horas-con-n8n",title:"Cómo una Agencia de Marketing Ahorró 120 Horas al Mes Automatizando con n8n",excerpt:"Descubre cómo una agencia pasó de perder clientes por respuestas lentas a cerrar 40% más ventas gracias a la automatización inteligente con n8n.",author:"lexaia Team",date:"2025-02-18",readTime:"9 min",category:"Automatización",tags:["n8n","Automatización","Caso de Estudio","ROI"],image:"https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",content:`
 # Cómo una Agencia de Marketing Ahorró 120 Horas al Mes Automatizando con n8n
 
 "Estamos perdiendo clientes porque tardamos demasiado en responder."
@@ -1574,20 +1475,7 @@ n8n es la herramienta. Pero la transformación real viene de repensar cómo trab
 ---
 
 *¿Tu empresa enfrenta desafíos similares? Cuéntanos en los comentarios. Si este caso te inspiró, compártelo con otros dueños de negocio que están luchando con el caos operativo.*
-    `
-  },
-  {
-    id: '1',
-    slug: 'como-la-ia-transforma-atencion-cliente',
-    title: 'Cómo la IA está Transformando la Atención al Cliente en 2025',
-    excerpt: 'Descubre cómo los chatbots con IA están revolucionando la experiencia del cliente, reduciendo costos hasta 60% y aumentando la satisfacción.',
-    author: 'lexaia Team',
-    date: '2025-01-15',
-    readTime: '8 min',
-    category: 'IA',
-    tags: ['Chatbots', 'Atención al Cliente', 'Automatización'],
-    image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=400&fit=crop',
-    content: `
+    `},{id:"1",slug:"como-la-ia-transforma-atencion-cliente",title:"Cómo la IA está Transformando la Atención al Cliente en 2025",excerpt:"Descubre cómo los chatbots con IA están revolucionando la experiencia del cliente, reduciendo costos hasta 60% y aumentando la satisfacción.",author:"lexaia Team",date:"2025-01-15",readTime:"8 min",category:"IA",tags:["Chatbots","Atención al Cliente","Automatización"],image:"https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=400&fit=crop",content:`
 # Cómo la IA está Transformando la Atención al Cliente en 2025
 
 La **inteligencia artificial** ha dejado de ser una tecnología futurista para convertirse en una herramienta esencial en la atención al cliente moderna. En 2025, las empresas que implementan IA en sus canales de soporte están viendo resultados extraordinarios.
@@ -1676,6 +1564,4 @@ La IA en atención al cliente no es opcional en 2025, es **competitiva**. Las em
 ---
 
 *¿Te gustó este artículo? Compártelo con tu equipo y síguenos para más contenido sobre IA y automatización.*
-    `
-  }
-];
+    `}];export{o as T,s as b};
