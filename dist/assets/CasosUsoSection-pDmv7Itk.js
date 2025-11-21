@@ -1,4 +1,4 @@
-import{c as e,j as t,m as a}from"./index-_Co-mtYy.js";import{C as i}from"./circle-check-big-CtEv0FRh.js";import{S as m}from"./shopping-cart-s4K2pTVl.js";import{B as d}from"./bar-chart-3-Du2SqcCC.js";import{C as r}from"./calendar-DqPKFxe_.js";import{U as p}from"./users-DT97pYJt.js";/**
+import{c as e,j as t,m as a}from"./index-J3kIyIhg.js";import{C as i}from"./circle-check-big-BX0tQXfp.js";import{S as m}from"./shopping-cart-CLrMbKda.js";import{B as d}from"./bar-chart-3-C9sler9b.js";import{C as r}from"./calendar-DQGXuHDD.js";import{U as p}from"./users-BVFFy_6G.js";/**
  * @license lucide-react v0.364.0 - ISC
  *
  * This source code is licensed under the ISC license.
