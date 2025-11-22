@@ -17,7 +17,7 @@ const faqs: FAQ[] = [
   {
     question: '¿Se integra con mi CRM o ERP actual?',
     answer:
-      'Sí, lexaia se integra con la mayoría de sistemas empresariales: Salesforce, HubSpot, Zoho, SAP, Microsoft Dynamics, y bases de datos personalizadas. Nuestro equipo técnico realiza la integración completa sin afectar tus operaciones actuales.',
+      'Absolutamente. Nos adaptamos al CRM que ya uses (Salesforce, HubSpot, Zoho, SAP, Microsoft Dynamics) sin que tengas que cambiar nada. Además, ofrecemos nuestro propio CRM marca blanca basado en Krayin CRM (open source), totalmente personalizable con tu marca. Tú decides: usamos tu sistema actual o implementamos nuestra solución según lo que mejor se adapte a tu negocio.',
   },
   {
     question: '¿Cuál es el costo aproximado para una pequeña empresa?',
@@ -30,9 +30,9 @@ const faqs: FAQ[] = [
       'Absolutamente. Todos los planes incluyen soporte 24/7: ticket por email (Starter), chat prioritario (Professional), y account manager dedicado (Enterprise). También ofrecemos un agente humano especializado en IA disponible vía WhatsApp para consultas inmediatas.',
   },
   {
-    question: '¿Qué tipo de chatbot de IA utilizan?',
+    question: '¿Qué modelos de IA utilizan para los agentes?',
     answer:
-      'Utilizamos modelos de IA avanzados (como GPT y DeepSeek) entrenados específicamente con la información de tu empresa. El chatbot aprende continuamente de las interacciones y puede integrarse con tu base de conocimiento existente.',
+      'Usamos diversos modelos según el requerimiento real de cada agente: desde modelos chinos como DeepSeek hasta OpenAI (GPT-4, GPT-3.5), Claude, y otros. La clave está en que cada automatización es diferente y cada negocio tiene necesidades únicas. Por eso analizamos tu caso específico y recomendamos el modelo que mejor se adapte a tus procesos, volumen de consultas, presupuesto y objetivos. No hay una solución única para todos.',
   },
   {
     question: '¿Cómo funciona el demo gratuito de 1 mes?',

@@ -1,9 +1,24 @@
-# robots.txt for AutomatizaIA
+# robots.txt para lexaia
 User-agent: *
 Allow: /
+Allow: /blog
+Allow: /faq
+Allow: /legal
 
-# Sitemaps
+# Sitemap
 Sitemap: https://bryanobando93-cyber.github.io/lexaia-web/sitemap.xml
 
 # Crawl-delay
-Crawl-delay: 10
+Crawl-delay: 0
+
+# Disallow admin areas (if any in the future)
+Disallow: /admin/
+Disallow: /*.json$
+
+# Allow all image files
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.webp$
+Allow: /*.svg$
