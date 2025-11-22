@@ -56,7 +56,7 @@ export const AIChatbot: React.FC = () => {
             const welcomeMessage: Message = {
               role: 'assistant',
               content:
-                '¡Hola! 👋 Soy el asistente virtual de lexaia. Estoy aquí para ayudarte a descubrir cómo la inteligencia artificial puede transformar tu empresa.\n\n¿En qué puedo ayudarte hoy?',
+                '¡Hola! 👋 Soy el asistente de lexaia. Estoy aquí para ayudarte con información sobre nuestros servicios de IA.\n\n¿En qué puedo ayudarte?',
             };
             setMessages([welcomeMessage]);
 
@@ -76,7 +76,7 @@ export const AIChatbot: React.FC = () => {
               {
                 role: 'assistant',
                 content:
-                  '¡Hola! 👋 Soy el asistente virtual de lexaia. Estoy aquí para ayudarte a descubrir cómo la inteligencia artificial puede transformar tu empresa.\n\n¿En qué puedo ayudarte hoy?',
+                  '¡Hola! 👋 Soy el asistente de lexaia. Estoy aquí para ayudarte con información sobre nuestros servicios de IA.\n\n¿En qué puedo ayudarte?',
               },
             ]);
           }
@@ -89,7 +89,7 @@ export const AIChatbot: React.FC = () => {
             {
               role: 'assistant',
               content:
-                '¡Hola! 👋 Soy el asistente virtual de lexaia. Estoy aquí para ayudarte a descubrir cómo la inteligencia artificial puede transformar tu empresa.\n\n¿En qué puedo ayudarte hoy?',
+                '¡Hola! 👋 Soy el asistente de lexaia. Estoy aquí para ayudarte con información sobre nuestros servicios de IA.\n\n¿En qué puedo ayudarte?',
             },
           ]);
         }
