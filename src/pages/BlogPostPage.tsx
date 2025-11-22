@@ -47,7 +47,7 @@ export const BlogPostPage: React.FC = () => {
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-heading font-bold text-slate-900 mb-6">
+          <h1 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-6">
             {post.title}
           </h1>
 
@@ -104,10 +104,10 @@ export const BlogPostPage: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="prose prose-slate prose-lg max-w-none
+          className="prose prose-slate prose-base max-w-none
             prose-headings:font-heading prose-headings:text-slate-900
-            prose-h2:text-3xl prose-h2:mb-4 prose-h2:mt-8
-            prose-h3:text-2xl prose-h3:mb-3 prose-h3:mt-6
+            prose-h2:text-2xl prose-h2:mb-4 prose-h2:mt-8
+            prose-h3:text-xl prose-h3:mb-3 prose-h3:mt-6
             prose-p:text-slate-700 prose-p:leading-relaxed
             prose-a:text-primary prose-a:no-underline hover:prose-a:underline
             prose-strong:text-slate-900 prose-strong:font-semibold
@@ -125,10 +125,10 @@ export const BlogPostPage: React.FC = () => {
           transition={{ delay: 0.5 }}
           className="mt-16 p-8 bg-gradient-to-r from-primary/10 to-purple-600/10 rounded-xl border border-primary/20"
         >
-          <h3 className="text-2xl font-heading font-bold text-slate-900 mb-4">
+          <h3 className="text-xl font-heading font-bold text-slate-900 mb-4">
             ¿Listo para transformar tu negocio con IA?
           </h3>
-          <p className="text-slate-700 mb-6">
+          <p className="text-sm text-slate-700 mb-6">
             En lexaia te ayudamos a implementar soluciones de automatización personalizadas para tu empresa.
           </p>
           <Link

@@ -32,15 +32,15 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post, index }) => {
         </div>
 
         <div className="p-6">
-          <h3 className="text-xl font-heading font-bold text-white mb-3 group-hover:text-primary transition-colors line-clamp-2">
+          <h3 className="text-base font-heading font-bold text-white mb-3 group-hover:text-primary transition-colors line-clamp-2">
             {post.title}
           </h3>
 
-          <p className="text-slate-300 mb-4 line-clamp-3">
+          <p className="text-sm text-slate-300 mb-4 line-clamp-3">
             {post.excerpt}
           </p>
 
-          <div className="flex items-center gap-4 text-sm text-slate-400 mb-4">
+          <div className="flex items-center gap-4 text-xs text-slate-400 mb-4">
             <div className="flex items-center gap-1">
               <Calendar className="w-4 h-4" />
               <span>{new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</span>

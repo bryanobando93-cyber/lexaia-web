@@ -27,7 +27,7 @@ export const BlogPage: React.FC = () => {
             <div className="p-3 bg-primary/20 rounded-lg">
               <BookOpen className="w-8 h-8 text-primary" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-heading font-bold text-white">
+            <h1 className="text-3xl md:text-4xl font-heading font-bold text-white">
               Blog de <span className="text-primary">lexaia</span>
             </h1>
           </motion.div>
@@ -36,7 +36,7 @@ export const BlogPage: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-slate-300 max-w-3xl"
+            className="text-base text-slate-300 max-w-3xl"
           >
             Descubre las últimas tendencias en IA, automatización y transformación digital para tu negocio.
           </motion.p>
