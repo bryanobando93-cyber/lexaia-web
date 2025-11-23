@@ -1,5 +1,5 @@
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { Suspense, lazy, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { MainContainer } from './components/MainContainer';
 import './App.css';
 
@@ -23,10 +23,28 @@ const PageLoader = () => (
   </div>
 );
 
+// Component to handle scroll restoration
+function ScrollToTop() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Always scroll to top on route change
+    window.scrollTo(0, 0);
+
+    // Clear any hash from URL to prevent auto-scrolling
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+  }, [location.pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <Router basename="/">
       <div className="App">
+        <ScrollToTop />
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<MainContainer />} />
