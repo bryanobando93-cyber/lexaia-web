@@ -208,6 +208,27 @@
 </head>
 
 <body>
+  <!-- Prevent auto-scroll to hash BEFORE React loads -->
+  <script>
+    // Disable scroll restoration immediately
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    // Force scroll to top immediately on page load
+    window.scrollTo(0, 0);
+
+    // Clear hash from URL if present
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+
+    // Prevent default hash scrolling
+    window.addEventListener('DOMContentLoaded', function() {
+      window.scrollTo(0, 0);
+    });
+  </script>
+
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
