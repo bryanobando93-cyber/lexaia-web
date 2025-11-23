@@ -28,7 +28,7 @@ function ScrollToTop() {
   const location = useLocation();
 
   useEffect(() => {
-    // Always scroll to top on route change
+    // ALWAYS scroll to top, both on mount and route change
     window.scrollTo(0, 0);
 
     // Clear any hash from URL to prevent auto-scrolling
@@ -36,6 +36,17 @@ function ScrollToTop() {
       window.history.replaceState(null, '', window.location.pathname);
     }
   }, [location.pathname]);
+
+  // Additional effect for initial mount
+  useEffect(() => {
+    // Force scroll to top on initial page load
+    window.scrollTo(0, 0);
+
+    // Disable browser scroll restoration
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  }, []);
 
   return null;
 }
